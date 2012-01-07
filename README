@@ -1,5 +1,7 @@
-=Spring MVC 3.1 Quickstart Maven Archetype=
+Spring MVC 3.1 Quickstart Maven Archetype
+=========================================
 
-==Summary==
+Summary
+-------
 
 The project is a Maven archetype for Spring MVC 3.1 web application.
