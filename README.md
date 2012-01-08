@@ -28,8 +28,8 @@ Create a project
         -DartifactId=my-artifactId
         -Dversion=version
 
-Run
----
+Run the project
+---------------
 
 run `mvn tomcat:run` in the generated project directory
 
