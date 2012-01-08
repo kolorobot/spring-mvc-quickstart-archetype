@@ -42,7 +42,7 @@ public class PersistanceContext implements TransactionManagementConfigurer {
 	public LocalContainerEntityManagerFactoryBean configureEntityManagerFactory() {
 		LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
 		entityManagerFactoryBean.setDataSource(configureDataSource());
-		entityManagerFactoryBean.setPackagesToScan("pl.codeleak.spring.mvc.quickstart.domain");
+		entityManagerFactoryBean.setPackagesToScan("${package}.domain");
 		entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
 		
 		Properties jpaProperties = new Properties();
