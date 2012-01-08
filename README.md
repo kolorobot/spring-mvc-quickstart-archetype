@@ -14,15 +14,17 @@ Generated project characteristics
 
 Usage
 -----
-1. run `mvn install' to install the archetype in your local repository
+1. run `mvn install` to install the archetype in your local repository
 2. create project using the archetype:
 
     mvn archetype:generate
-      -DarchetypeGroupId=com.github.spring-mvc-archetypes
-      -DarchetypeArtifactId=spring-mvc-quickstart
-      -DarchetypeVersion=1.0.0-SNAPSHOT
-      -DgroupId=<my.groupid>
-      -DartifactId=<my-artifactId>
-      -Dversion=<version>
+    -DarchetypeGroupId=com.github.spring-mvc-archetypes
+    -DarchetypeArtifactId=spring-mvc-quickstart
+    -DarchetypeVersion=1.0.0-SNAPSHOT
+    -DgroupId=my.groupid
+    -DartifactId=my-artifactId
+    -Dversion=version
+
+3. run `mvn tomcat:run` in the generated project directory
 
       
