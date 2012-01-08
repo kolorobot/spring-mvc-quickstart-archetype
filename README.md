@@ -7,22 +7,30 @@ The project is a Maven archetype for Spring MVC 3.1 web application.
 
 Generated project characteristics
 -------------------------
-* Spring MVC 3.1.0.RELEASE configured using @Configuration classes
+* Spring MVC 3.1.0.RELEASE configured using `@Configuration` classes
 * Apache Tiles with configuration in place
 * JPA 2.0 (Hibernate/HSQLDB)
 * JUnit/Mockito
 
-Usage
------
-1. run `mvn install' to install the archetype in your local repository
-2. create project using the archetype:
+Installation
+------------
+
+run `mvn install` to install the archetype in your local repository
+
+Create a project
+----------------
 
     mvn archetype:generate
-      -DarchetypeGroupId=com.github.spring-mvc-archetypes
-      -DarchetypeArtifactId=spring-mvc-quickstart
-      -DarchetypeVersion=1.0.0-SNAPSHOT
-      -DgroupId=<my.groupid>
-      -DartifactId=<my-artifactId>
-      -Dversion=<version>
+        -DarchetypeGroupId=com.github.spring-mvc-archetypes
+        -DarchetypeArtifactId=spring-mvc-quickstart
+        -DarchetypeVersion=1.0.0-SNAPSHOT
+        -DgroupId=my.groupid
+        -DartifactId=my-artifactId
+        -Dversion=version
+
+Run
+---
+
+run `mvn tomcat:run` in the generated project directory
 
       
