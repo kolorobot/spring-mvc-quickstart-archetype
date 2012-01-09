@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.TransactionManagementConfigure
 @Configuration
 @EnableTransactionManagement
 @PropertySource("classpath:persistence.properties")
-public class WebMvcConfig implements TransactionManagementConfigurer {
+public class PersistenceConfig implements TransactionManagementConfigurer {
 	
 	private static final String PASSWORD_PROPERTY = "dataSource.password";
 	private static final String USERNAME_PROPERTY = "dataSource.username";

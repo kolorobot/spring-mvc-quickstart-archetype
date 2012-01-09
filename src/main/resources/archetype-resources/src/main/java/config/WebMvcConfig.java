@@ -9,8 +9,8 @@ import org.springframework.web.servlet.view.tiles2.TilesViewResolver;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = { "${package}" }, excludeFilters = @Filter(type = FilterType.ANNOTATION, value = Configuration.class))
-@Import(PersistanceConfig.class)
-public class ServletContext extends WebMvcConfigurerAdapter {
+@Import(PersistenceConfig.class)
+public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	
 	
 	@Bean
