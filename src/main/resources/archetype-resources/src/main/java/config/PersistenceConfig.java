@@ -27,7 +27,7 @@ public class PersistenceConfig implements TransactionManagementConfigurer {
 	
 	@Autowired
     private Environment env;
-	
+
 	@Bean
 	public DataSource configureDataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();

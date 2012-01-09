@@ -14,16 +14,16 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	
 	
 	@Bean
-    public TilesViewResolver configureTilesViewResolver() {
-        return new TilesViewResolver();
-    }
+	public TilesViewResolver configureTilesViewResolver() {
+		return new TilesViewResolver();
+	}
 	
 	@Bean
-    public TilesConfigurer configureTilesConfigurer() {
-        TilesConfigurer configurer = new TilesConfigurer();
-        configurer.setDefinitions(new String[] {"/WEB-INF/tiles/tiles.xml", "/WEB-INF/views/**/views.xml"});
-        return configurer;
-    }
+	public TilesConfigurer configureTilesConfigurer() {
+		TilesConfigurer configurer = new TilesConfigurer();
+		configurer.setDefinitions(new String[] {"/WEB-INF/tiles/tiles.xml", "/WEB-INF/views/**/views.xml"});
+		return configurer;
+	}
 	
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
