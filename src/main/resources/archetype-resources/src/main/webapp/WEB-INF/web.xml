@@ -7,7 +7,7 @@
   
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>${package}.config.RootContext</param-value>
+    <param-value>${package}.config.RootConfig</param-value>
   </context-param>
   
   <listener>
@@ -23,7 +23,7 @@
     </init-param>
     <init-param>
       <param-name>contextConfigLocation</param-name>
-      <param-value>${package}.config.ServletContext</param-value>
+      <param-value>${package}.config.WebMvcConfig</param-value>
     </init-param>
     <load-on-startup>1</load-on-startup>
   </servlet>
