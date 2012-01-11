@@ -7,7 +7,7 @@ The project is a Maven archetype for Spring MVC 3.1 web application.
 
 Generated project characteristics
 -------------------------
-* Spring MVC 3.1.0.RELEASE configured using `@Configuration` classes
+* No-xml Spring MVC 3.1.0.RELEASE web application for Servlet 3.0 environment
 * Apache Tiles with configuration in place
 * JPA 2.0 (Hibernate/HSQLDB)
 * JUnit/Mockito
@@ -27,10 +27,3 @@ Create a project
         -DgroupId=my.groupid
         -DartifactId=my-artifactId
         -Dversion=version
-
-Run the project
----------------
-
-run `mvn tomcat:run` in the generated project directory
-
-      

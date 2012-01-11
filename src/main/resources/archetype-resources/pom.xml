@@ -11,7 +11,6 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java-version>1.6</java-version>
 		<org.springframework-version>3.1.0.RELEASE</org.springframework-version>
-		<org.springframework.security-version>3.1.0.RELEASE</org.springframework.security-version>
 		<org.aspectj-version>1.6.9</org.aspectj-version>
 		<cglib-version>2.2.2</cglib-version>
 		<org.slf4j-version>1.5.10</org.slf4j-version>
@@ -158,9 +157,9 @@
 
 		<!-- Servlet -->
 		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>2.5</version>
+			<groupId>org.apache.geronimo.specs</groupId>
+			<artifactId>geronimo-servlet_3.0_spec</artifactId>
+			<version>1.0</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
