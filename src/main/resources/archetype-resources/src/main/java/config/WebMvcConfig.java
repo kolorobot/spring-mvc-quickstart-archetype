@@ -1,14 +1,13 @@
 package ${package}.config;
 
 import org.springframework.context.annotation.*;
-import org.springframework.context.annotation.ComponentScan.Filter;
 import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.tiles2.TilesConfigurer;
 import org.springframework.web.servlet.view.tiles2.TilesViewResolver;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = { "${package}" }, excludeFilters = @Filter(type = FilterType.ANNOTATION, value = Configuration.class))
+@ComponentScan(basePackages = { "${package}" })
 @Import(PersistenceConfig.class)
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	
