@@ -12,6 +12,11 @@ import org.springframework.web.servlet.view.tiles2.TilesViewResolver;
 @Import(PersistenceConfig.class)
 public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	
+	private static final String TILES = "/WEB-INF/tiles/tiles.xml";
+	private static final String VIEWS = "/WEB-INF/views/**/views.xml";
+	
+	private static final String RESOURCES_HANDLER = "/resources/";
+	private static final String RESOURCES_LOCATION = RESOURCES_HANDLER + "**";
 	
 	@Bean
 	public TilesViewResolver configureTilesViewResolver() {
@@ -21,13 +26,13 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	@Bean
 	public TilesConfigurer configureTilesConfigurer() {
 		TilesConfigurer configurer = new TilesConfigurer();
-		configurer.setDefinitions(new String[] {"/WEB-INF/tiles/tiles.xml", "/WEB-INF/views/**/views.xml"});
+		configurer.setDefinitions(new String[] {TILES, VIEWS});
 		return configurer;
 	}
 	
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/resources/").addResourceLocations("/recourses/**");
+		registry.addResourceHandler(RESOURCES_HANDLER).addResourceLocations(RESOURCES_LOCATION);
 	}
 
 	@Override
