@@ -18,7 +18,8 @@ public class WebAppInitializer implements WebApplicationInitializer {
 		rootContext.register(RootConfig.class);
 		
 		servletContext.addListener(new ContextLoaderListener(rootContext));
-
+		servletContext.setInitParameter("defaultHtmlEscape", "true");
+		
 		AnnotationConfigWebApplicationContext mvcContext = new AnnotationConfigWebApplicationContext();
 		mvcContext.register(WebMvcConfig.class);
 

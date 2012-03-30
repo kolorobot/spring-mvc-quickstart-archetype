@@ -8,12 +8,12 @@ import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.view.tiles2.TilesConfigurer;
 import org.springframework.web.servlet.view.tiles2.TilesViewResolver;
+import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
 @Configuration
-@EnableWebMvc
 @ComponentScan(basePackages = { "${package}" })
 @Import(PersistenceConfig.class)
-public class WebMvcConfig extends WebMvcConfigurerAdapter {
+public class WebMvcConfig extends WebMvcConfigurationSupport {
 	
 	private static final String MESSAGE_SOURCE = "/WEB-INF/classes/messages";
 	private static final String TILES = "/WEB-INF/tiles/tiles.xml";
@@ -21,6 +21,14 @@ public class WebMvcConfig extends WebMvcConfigurerAdapter {
 	
 	private static final String RESOURCES_HANDLER = "/resources/";
 	private static final String RESOURCES_LOCATION = RESOURCES_HANDLER + "**";
+	
+	@Override
+	public RequestMappingHandlerMapping requestMappingHandlerMapping() {
+		RequestMappingHandlerMapping requestMappingHandlerMapping = super.requestMappingHandlerMapping();
+		requestMappingHandlerMapping.setUseSuffixPatternMatch(false);
+		requestMappingHandlerMapping.setUseTrailingSlashMatch(false);
+		return requestMappingHandlerMapping;
+	}
 	
 	@Bean(name = "messageSource")
 	public MessageSource configureMessageSource() {
