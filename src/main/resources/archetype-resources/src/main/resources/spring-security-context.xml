@@ -9,8 +9,9 @@ http://www.springframework.org/schema/security/spring-security-3.1.xsd">
 	<security:global-method-security pre-post-annotations="enabled" secured-annotations="enabled" />
 
 	<security:http auto-config="true" disable-url-rewriting="true" use-expressions="true">
+		<security:logout logout-url="/logout" />
 		<security:intercept-url pattern="/" access="permitAll" />
-		<security:intercept-url pattern="/**" access="isAuthenticated()" />		
+		<security:intercept-url pattern="/**" access="isAuthenticated()" />
 	</security:http>
 
 	<security:authentication-manager>
