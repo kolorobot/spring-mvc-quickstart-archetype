@@ -11,8 +11,7 @@ import org.springframework.web.servlet.view.tiles2.TilesViewResolver;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
 @Configuration
-@ComponentScan(basePackages = { "${package}" })
-@Import(PersistenceConfig.class)
+@ComponentScan(basePackages = { "${package}.web" })
 public class WebMvcConfig extends WebMvcConfigurationSupport {
 	
 	private static final String MESSAGE_SOURCE = "/WEB-INF/classes/messages";

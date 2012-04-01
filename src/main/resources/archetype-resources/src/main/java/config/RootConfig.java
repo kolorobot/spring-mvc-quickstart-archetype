@@ -1,8 +1,8 @@
 package ${package}.config;
 
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.*;
 
 @Configuration
-@Import(SecurityConfig.class)
+@ComponentScan(basePackages = { "${package}.domain" })
+@Import({ PersistenceConfig.class, SecurityConfig.class })
 public class RootConfig {}
