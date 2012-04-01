@@ -1,7 +1,6 @@
 package ${package}.domain;
 
 import static org.junit.Assert.*;
-import static org.junit.matchers.JUnitMatchers.*;
 import static org.mockito.Matchers.*;
 import static org.mockito.Mockito.*;
 
@@ -14,7 +13,7 @@ import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
@@ -61,12 +60,16 @@ public class UserServiceTest {
 		// assert
 		assertEquals(demoUser.getUsername(), userDetails.getUsername());
 		assertEquals(demoUser.getPassword(), userDetails.getPassword());
-		hasAuthority(userDetails, demoUser.getRole());
+		assertTrue(hasAuthority(userDetails, demoUser.getRole()));
 	}
 
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	private void hasAuthority(UserDetails userDetails, String role) {
-		Collection authorities = userDetails.getAuthorities();
-		assertThat(authorities, hasItem(new SimpleGrantedAuthority(role)));
+	private boolean hasAuthority(UserDetails userDetails, String role) {
+		Collection<? extends GrantedAuthority> authorities = userDetails.getAuthorities();
+		for(GrantedAuthority authority : authorities) {
+			if(authority.getAuthority().equals(role)) {
+				return true;
+			}
+		}
+		return false;
 	}
 }
