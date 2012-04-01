@@ -11,6 +11,7 @@ Generated project characteristics
 * Apache Tiles with configuration in place
 * JPA 2.0 (Hibernate/HSQLDB)
 * JUnit/Mockito
+* Spring Security 3.1.0.RELEASE
 
 Installation
 ------------
