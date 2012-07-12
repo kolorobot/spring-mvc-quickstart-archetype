@@ -34,7 +34,7 @@ public class UserServiceTest {
 		// act
 		userService.initialize();
 		// assert
-		verify(userRepositoryMock, times(1)).save(any(User.class));
+		verify(userRepositoryMock, times(2)).save(any(User.class));
 	}
 
 	@Test
