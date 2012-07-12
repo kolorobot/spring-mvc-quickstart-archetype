@@ -4,9 +4,9 @@ import java.util.Properties;
 
 import javax.sql.DataSource;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.*;
-import org.springframework.core.env.Environment;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -17,24 +17,28 @@ import org.springframework.transaction.annotation.TransactionManagementConfigure
 
 @Configuration
 @EnableTransactionManagement
-@PropertySource("classpath:persistence.properties")
 public class PersistenceConfig implements TransactionManagementConfigurer {
 	
-	private static final String PASSWORD_PROPERTY = "dataSource.password";
-	private static final String USERNAME_PROPERTY = "dataSource.username";
-	private static final String URL_PROPERTY = "dataSource.url";
-	private static final String DRIVER_CLASS_NAME_PROPERTY = "dataSource.driverClassName";
-	
-	@Autowired
-    private Environment env;
+	@Value("${dataSource.driverClassName}")
+	private String driver;
+	@Value("${dataSource.url}")
+	private String url;
+	@Value("${dataSource.username}")
+	private String username;
+	@Value("${dataSource.password}")
+	private String password;
+	@Value("${hibernate.dialect}")
+	private String dialect;
+	@Value("${hibernate.hbm2ddl.auto}")
+	private String hbm2ddlAuto;
 
 	@Bean
 	public DataSource configureDataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
-		dataSource.setDriverClassName(env.getProperty(DRIVER_CLASS_NAME_PROPERTY));
-		dataSource.setUrl(env.getProperty(URL_PROPERTY));
-		dataSource.setUsername(env.getProperty(USERNAME_PROPERTY));
-		dataSource.setPassword(env.getProperty(PASSWORD_PROPERTY));
+		dataSource.setDriverClassName(driver);
+		dataSource.setUrl(url);
+		dataSource.setUsername(username);
+		dataSource.setPassword(password);
 		return dataSource;
 	}
 	
@@ -46,8 +50,8 @@ public class PersistenceConfig implements TransactionManagementConfigurer {
 		entityManagerFactoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
 		
 		Properties jpaProperties = new Properties();
-		jpaProperties.put(org.hibernate.cfg.Environment.DIALECT, env.getProperty(org.hibernate.cfg.Environment.DIALECT));
-		jpaProperties.put(org.hibernate.cfg.Environment.HBM2DDL_AUTO, env.getProperty(org.hibernate.cfg.Environment.HBM2DDL_AUTO));
+		jpaProperties.put(org.hibernate.cfg.Environment.DIALECT, dialect);
+		jpaProperties.put(org.hibernate.cfg.Environment.HBM2DDL_AUTO, hbm2ddlAuto);
 		entityManagerFactoryBean.setJpaProperties(jpaProperties);
 		
 		return entityManagerFactoryBean;
