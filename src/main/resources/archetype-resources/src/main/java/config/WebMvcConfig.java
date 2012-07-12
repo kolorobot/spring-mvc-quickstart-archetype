@@ -12,6 +12,7 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 
 @Configuration
 @ComponentScan(basePackages = { "${package}.web" })
+@ImportResource("classpath:spring-global-method-security.xml")
 public class WebMvcConfig extends WebMvcConfigurationSupport {
 	
 	private static final String MESSAGE_SOURCE = "/WEB-INF/classes/messages";

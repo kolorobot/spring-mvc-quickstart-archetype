@@ -10,6 +10,8 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.*;
 import org.springframework.stereotype.Service;
 
+import com.github.kolorobot.domain.User;
+
 @Service("userService")
 public class UserService implements UserDetailsService {
 	
@@ -19,6 +21,7 @@ public class UserService implements UserDetailsService {
 	@PostConstruct	
 	protected void initialize() {
 		userRepository.save(new User("user", "demo", "ROLE_USER"));
+		userRepository.save(new User("admin", "admin", "ROLE_ADMIN"));
 	}
 	
 	@Override
