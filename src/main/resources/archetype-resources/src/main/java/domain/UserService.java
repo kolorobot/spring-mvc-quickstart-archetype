@@ -10,7 +10,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.*;
 import org.springframework.stereotype.Service;
 
-import com.github.kolorobot.domain.User;
+import ${package}.domain.User;
 
 @Service("userService")
 public class UserService implements UserDetailsService {
