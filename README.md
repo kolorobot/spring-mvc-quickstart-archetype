@@ -28,3 +28,9 @@ Create a project
         -DgroupId=my.groupid
         -DartifactId=my-artifactId
         -Dversion=version
+
+Run the project
+----------------
+
+	mvn tomcat7:run
+

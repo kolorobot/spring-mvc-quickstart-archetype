@@ -24,7 +24,7 @@ import org.springframework.web.servlet.view.tiles2.TilesViewResolver;
 @ImportResource("classpath:spring-global-method-security.xml")
 public class WebMvcConfig extends WebMvcConfigurationSupport {
 	
-	private static final String MESSAGE_SOURCE = "/WEB-INF/classes/messages";
+	private static final String MESSAGE_SOURCE = "/WEB-INF/i18n/messages";
 	private static final String TILES = "/WEB-INF/tiles/tiles.xml";
 	private static final String VIEWS = "/WEB-INF/views/**/views.xml";
 	
