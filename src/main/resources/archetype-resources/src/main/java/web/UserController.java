@@ -1,24 +1,37 @@
 package ${package}.web;
 
+import ${package}.domain.User;
+import ${package}.domain.UserRepository;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("user")
 @Secured("ROLE_USER")
 public class UserController {
 	
 	private static final Logger LOG = LoggerFactory.getLogger(UserController.class);
 	
-	@RequestMapping(value = "", method = RequestMethod.GET)
+	@Autowired
+	private UserRepository userRepository;
+	
+	@RequestMapping(value = "user", method = RequestMethod.GET)
 	public String index(UserDetails userDetails, Model model) {
 		LOG.info(userDetails.toString());
 		return "user/index";
+	}
+	
+	@RequestMapping(value = "user.json", method = RequestMethod.GET)
+	@ResponseStatus(value = HttpStatus.OK)
+	@ResponseBody
+	public User jsonGetUser(UserDetails userDetails) {
+		return userRepository.findByUsername(userDetails.getUsername());
 	}
 }

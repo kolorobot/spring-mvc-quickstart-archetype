@@ -2,6 +2,8 @@ package ${package}.domain;
 
 import javax.persistence.*;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 @Entity
 @Table(name = "user")
 @NamedQuery(name = User.FIND_BY_USERNAME, query = "select u from User u where u.username = :username")
@@ -15,7 +17,8 @@ public class User {
 
 	@Column(unique = true)
 	private String username;
-
+	
+	@JsonIgnore
 	private String password;
 
 	private String role = "ROLE_USER";
