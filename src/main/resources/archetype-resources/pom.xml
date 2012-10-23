@@ -13,10 +13,11 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java-version>1.6</java-version>
         <org.springframework-version>3.1.2.RELEASE</org.springframework-version>
-        <org.springframework.security-version>3.1.0.RELEASE</org.springframework.security-version>
+        <org.springframework.security-version>3.1.3.RELEASE</org.springframework.security-version>
         <org.aspectj-version>1.6.9</org.aspectj-version>
         <cglib-version>2.2.2</cglib-version>
-        <org.slf4j-version>1.5.10</org.slf4j-version>
+        <org.slf4j-version>1.7.2</org.slf4j-version>
+        <ch.qos.logback-version>1.0.7</ch.qos.logback-version>
         <org.apache.tiles-version>2.2.2</org.apache.tiles-version>
     </properties>
     <repositories>
@@ -139,34 +140,9 @@
             <scope>runtime</scope>
         </dependency>
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>${org.slf4j-version}</version>
-            <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.15</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>javax.mail</groupId>
-                    <artifactId>mail</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>javax.jms</groupId>
-                    <artifactId>jms</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>com.sun.jdmk</groupId>
-                    <artifactId>jmxtools</artifactId>
-                </exclusion>
-                <exclusion>
-                    <groupId>com.sun.jmx</groupId>
-                    <artifactId>jmxri</artifactId>
-                </exclusion>
-            </exclusions>
-            <scope>runtime</scope>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${ch.qos.logback-version}</version>
         </dependency>
         <!-- @Inject -->
         <dependency>
