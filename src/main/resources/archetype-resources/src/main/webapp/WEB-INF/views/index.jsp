@@ -4,4 +4,5 @@
 
 <p>
 	Click <a href='<s:url value="user"></s:url>'>here</a> to navigate to the restricted area. Username: <strong>user</strong>, password: <strong>demo</strong>.
+	Click <a href='<s:url value="default/index"></s:url>'>here</a> to navigate to default area
 </p>
