@@ -17,7 +17,7 @@
         <org.aspectj-version>1.7.0</org.aspectj-version>        
         <org.slf4j-version>1.7.2</org.slf4j-version>
         <ch.qos.logback-version>1.0.7</ch.qos.logback-version>
-        <org.apache.tiles-version>2.2.2</org.apache.tiles-version>
+        <org.apache.tiles-version>3.0.1</org.apache.tiles-version>
     </properties>
     <repositories>
         <repository>

@@ -15,7 +15,7 @@ import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.*;
 import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
-import org.springframework.web.servlet.view.tiles2.*;
+import org.springframework.web.servlet.view.tiles3.*;
 
 @Configuration
 public class WebMvcConfig extends WebMvcConfigurationSupport {
