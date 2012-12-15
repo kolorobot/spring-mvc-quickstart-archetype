@@ -12,10 +12,9 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java-version>1.6</java-version>
-        <org.springframework-version>3.1.2.RELEASE</org.springframework-version>
+        <org.springframework-version>3.2.0.RELEASE</org.springframework-version>
         <org.springframework.security-version>3.1.3.RELEASE</org.springframework.security-version>
-        <org.aspectj-version>1.6.9</org.aspectj-version>
-        <cglib-version>2.2.2</cglib-version>
+        <org.aspectj-version>1.7.0</org.aspectj-version>        
         <org.slf4j-version>1.7.2</org.slf4j-version>
         <ch.qos.logback-version>1.0.7</ch.qos.logback-version>
         <org.apache.tiles-version>2.2.2</org.apache.tiles-version>
@@ -107,20 +106,14 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-validator</artifactId>
-            <version>4.2.0.Final</version>
+            <version>4.3.0.Final</version>
         </dependency>
         <!-- Apache Tiles -->
         <dependency>
             <groupId>org.apache.tiles</groupId>
             <artifactId>tiles-jsp</artifactId>
             <version>${org.apache.tiles-version}</version>
-        </dependency>
-        <!-- CGLIB -->
-        <dependency>
-            <groupId>cglib</groupId>
-            <artifactId>cglib</artifactId>
-            <version>${cglib-version}</version>
-        </dependency>
+        </dependency>        
         <!-- AspectJ -->
         <dependency>
             <groupId>org.aspectj</groupId>

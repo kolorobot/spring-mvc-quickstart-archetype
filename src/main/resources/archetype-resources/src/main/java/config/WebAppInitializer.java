@@ -17,7 +17,7 @@ public class WebAppInitializer implements WebApplicationInitializer {
 	public void onStartup(ServletContext servletContext) throws ServletException {
 
 		AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
-		rootContext.register(RootConfig.class);
+		rootContext.register(RootConfig.class, WebMvcConfig.class);
 		
 		FilterRegistration.Dynamic securityFilter = servletContext.addFilter("securityFilter", new DelegatingFilterProxy("springSecurityFilterChain"));
 		securityFilter.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
@@ -25,10 +25,11 @@ public class WebAppInitializer implements WebApplicationInitializer {
 		servletContext.addListener(new ContextLoaderListener(rootContext));
 		servletContext.setInitParameter("defaultHtmlEscape", "true");
 		
-		AnnotationConfigWebApplicationContext mvcContext = new AnnotationConfigWebApplicationContext();
-		mvcContext.register(WebMvcConfig.class);
-
-		ServletRegistration.Dynamic appServlet = servletContext.addServlet("appServlet", new DispatcherServlet(mvcContext));
+		DispatcherServlet servlet = new DispatcherServlet();
+		// no explicit configuration reference here: everything is configured in the root container for simplicity
+		servlet.setContextConfigLocation("");
+		
+		ServletRegistration.Dynamic appServlet = servletContext.addServlet("appServlet", servlet);
 		appServlet.setLoadOnStartup(1);
 		Set<String> mappingConflicts = appServlet.addMapping("/");
 
