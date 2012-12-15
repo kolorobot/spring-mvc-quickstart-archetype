@@ -1,4 +1,4 @@
-package ${package}.domain;
+package ${package}.user;
 
 import java.util.Collections;
 
@@ -9,8 +9,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.*;
 import org.springframework.stereotype.Service;
-
-import ${package}.domain.User;
 
 @Service("userService")
 public class UserService implements UserDetailsService {

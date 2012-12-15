@@ -1,4 +1,4 @@
-package ${package}.domain;
+package ${package}.user;
 
 import javax.persistence.*;
 

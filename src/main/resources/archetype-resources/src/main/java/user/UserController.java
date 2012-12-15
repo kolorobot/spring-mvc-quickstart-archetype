@@ -1,7 +1,4 @@
-package ${package}.web;
-
-import ${package}.domain.User;
-import ${package}.domain.UserRepository;
+package ${package}.user;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
