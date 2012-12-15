@@ -37,7 +37,9 @@ Run the project
 Creating a new project in Eclipse
 ----------------------------------
 
-In Eclipse go to Preferences > Maven > Archetypes and Add Local Catalog. Select the catalog from file (one can be found here: https://github.com/kolorobot/spring-mvc-quickstart-archetype/blob/master/archetype-catalog.xml). Then just create new maven project and select the archetype (it is a snapshot archetype, so select "Include snapshot archetypes").
+* Install the archetype in local repository with `mvn install`
+* Go to `Preferences > Maven > Archetypes` and `Add Local Catalog`
+* Select the catalog from file (`archetype-catalog.xml`) 
+* Create new Maven project and select the archetype (remember so select `Include snapshot archetypes`).
 
-The archetype must be installed in local repository beforehand.
 

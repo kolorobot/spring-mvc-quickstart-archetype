@@ -5,8 +5,7 @@ import org.springframework.beans.factory.config.PropertyPlaceholderConfigurer;
 import org.springframework.core.io.ClassPathResource;
 
 @Configuration
-@ComponentScan(basePackages = { "${package}.domain" })
-@Import({ PersistenceConfig.class, SecurityConfig.class })
+@ComponentScan(basePackages = { "${package}" })
 public class RootConfig {
 	
 	@Bean

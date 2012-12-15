@@ -12,16 +12,12 @@ import org.springframework.validation.Validator;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.bind.support.WebDataBinderFactory;
 import org.springframework.web.context.request.NativeWebRequest;
-import org.springframework.web.method.support.HandlerMethodArgumentResolver;
-import org.springframework.web.method.support.ModelAndViewContainer;
+import org.springframework.web.method.support.*;
 import org.springframework.web.servlet.config.annotation.*;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
-import org.springframework.web.servlet.view.tiles2.TilesConfigurer;
-import org.springframework.web.servlet.view.tiles2.TilesViewResolver;
+import org.springframework.web.servlet.view.tiles2.*;
 
 @Configuration
-@ComponentScan(basePackages = { "${package}.web" })
-@ImportResource("classpath:spring-global-method-security.xml")
 public class WebMvcConfig extends WebMvcConfigurationSupport {
 	
 	private static final String MESSAGE_SOURCE = "/WEB-INF/i18n/messages";

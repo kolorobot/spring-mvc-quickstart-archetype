@@ -16,13 +16,13 @@ public class WebAppInitializer implements WebApplicationInitializer {
 	@Override
 	public void onStartup(ServletContext servletContext) throws ServletException {
 
-		AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
-		rootContext.register(RootConfig.class, WebMvcConfig.class);
+		AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
+		context.setConfigLocation("${package}.config");
 		
 		FilterRegistration.Dynamic securityFilter = servletContext.addFilter("securityFilter", new DelegatingFilterProxy("springSecurityFilterChain"));
 		securityFilter.addMappingForUrlPatterns(EnumSet.allOf(DispatcherType.class), true, "/*");
 		
-		servletContext.addListener(new ContextLoaderListener(rootContext));
+		servletContext.addListener(new ContextLoaderListener(context));
 		servletContext.setInitParameter("defaultHtmlEscape", "true");
 		
 		DispatcherServlet servlet = new DispatcherServlet();
@@ -31,8 +31,9 @@ public class WebAppInitializer implements WebApplicationInitializer {
 		
 		ServletRegistration.Dynamic appServlet = servletContext.addServlet("appServlet", servlet);
 		appServlet.setLoadOnStartup(1);
+		appServlet.setAsyncSupported(true);
+		
 		Set<String> mappingConflicts = appServlet.addMapping("/");
-
 		if (!mappingConflicts.isEmpty()) {
 			throw new IllegalStateException("'appServlet' cannot be mapped to '/' under Tomcat versions <= 7.0.14");
 		}
