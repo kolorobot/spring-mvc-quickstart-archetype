@@ -1,4 +1,4 @@
-package ${package}.domain;
+package ${package}.user;
 
 import static org.junit.Assert.*;
 import static org.mockito.Matchers.*;
