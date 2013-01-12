@@ -9,6 +9,7 @@ http://www.springframework.org/schema/security/spring-security-3.1.xsd">
 	<security:http auto-config="true" disable-url-rewriting="true" use-expressions="true">
 		<security:form-login login-page="/default/signin"/>
 		<security:logout logout-url="/logout" />
+		<security:remember-me services-ref="rememberMeServices" key="remember-me-key"/>
 		<security:intercept-url pattern="/" access="permitAll" />
 		<security:intercept-url pattern="/resources/**" access="permitAll" />
 		<security:intercept-url pattern="/default/**" access="permitAll" />

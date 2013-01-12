@@ -33,7 +33,7 @@
 	<input type="text" class="input-block-level" placeholder="Email address" name="j_username"/> 
 	<input type="password" class="input-block-level" placeholder="Password" name="j_password" />
 	<label class="checkbox">
-		<input type="checkbox" value="remember-me">Remember me</input>
+		<input type="checkbox" name="_spring_security_remember_me">Remember me</input>
 	</label>
 	<button class="btn btn-large btn-primary" type="submit">Signin</button>
 </form>
