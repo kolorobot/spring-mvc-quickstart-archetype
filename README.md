@@ -8,7 +8,7 @@ The project is a Maven archetype for Spring MVC 3.2 web application.
 Generated project characteristics
 -------------------------
 * No-xml Spring MVC 3.2 web application for Servlet 3.0 environment
-* Apache Tiles with configuration in place
+* Apache Tiles with configuration in place, Bootstrap
 * JPA 2.0 (Hibernate/HSQLDB)
 * JUnit/Mockito
 * Spring Security 3.1
