@@ -4,7 +4,7 @@ import org.springframework.context.annotation.*;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.rememberme.TokenBasedRememberMeServices;
 
-import ${package}.user.UserService;
+import ${package}.account.UserService;
 
 @Configuration
 @ImportResource(value = "classpath:spring-security-context.xml")

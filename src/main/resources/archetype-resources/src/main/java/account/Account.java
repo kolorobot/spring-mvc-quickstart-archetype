@@ -1,15 +1,15 @@
-package ${package}.user;
+package ${package}.account;
 
 import javax.persistence.*;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 
 @Entity
-@Table(name = "user")
-@NamedQuery(name = User.FIND_BY_USERNAME, query = "select u from User u where u.username = :username")
-public class User {
+@Table(name = "account")
+@NamedQuery(name = Account.FIND_BY_USERNAME, query = "select a from Account a where a.username = :username")
+public class Account {
 
-	public static final String FIND_BY_USERNAME = "User.findByUsername";
+	public static final String FIND_BY_USERNAME = "Account.findByUsername";
 
 	@Id
 	@GeneratedValue
@@ -25,11 +25,11 @@ public class User {
 	
 	private String name;
 	
-	protected User() {
+	protected Account() {
 
 	}
 	
-	public User(String username, String password, String role) {
+	public Account(String username, String password, String role) {
 		this.username = username;
 		this.password = password;
 		this.role = role;

@@ -13,7 +13,7 @@
 			<div class="nav-collapse collapse">
 				<ul class="nav">
 					<li class="active"><a href='<s:url value="/"></s:url>'>Home</a></li>
-					<li><a href='<s:url value="/user"></s:url>'>Restricted</a></li>
+					<li><a href='<s:url value="/account"></s:url>'>Restricted</a></li>
 					<li><a href='<s:url value="/default/index"></s:url>'>Default</a></li>
 					<security:authorize access="isAuthenticated()">
 						<li><a href='<s:url value="/logout"></s:url>'>Logout</a></li>

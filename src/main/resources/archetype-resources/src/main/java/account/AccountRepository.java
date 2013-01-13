@@ -1,4 +1,4 @@
-package ${package}.user;
+package ${package}.account;
 
 import javax.persistence.*;
 
@@ -7,19 +7,19 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 @Transactional(readOnly = true)
-public class UserRepository {
+public class AccountRepository {
 	
 	@PersistenceContext
 	private EntityManager entityManager;
 	
 	@Transactional
-	public void save(User user) {
-		entityManager.persist(user);
+	public void save(Account account) {
+		entityManager.persist(account);
 	}
 	
-	public User findByUsername(String username) {
+	public Account findByUsername(String username) {
 		try {
-			return entityManager.createNamedQuery(User.FIND_BY_USERNAME, User.class)
+			return entityManager.createNamedQuery(Account.FIND_BY_USERNAME, Account.class)
 					.setParameter("username", username)
 					.getSingleResult();
 		} catch (PersistenceException e) {

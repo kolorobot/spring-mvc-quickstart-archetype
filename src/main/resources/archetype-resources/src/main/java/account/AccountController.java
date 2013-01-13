@@ -1,4 +1,4 @@
-package ${package}.user;
+package ${package}.account;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,23 +12,23 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @Secured("ROLE_USER")
-public class UserController {
+public class AccountController {
 	
-	private static final Logger LOG = LoggerFactory.getLogger(UserController.class);
+	private static final Logger LOG = LoggerFactory.getLogger(AccountController.class);
 	
 	@Autowired
-	private UserRepository userRepository;
+	private AccountRepository userRepository;
 	
-	@RequestMapping(value = "user", method = RequestMethod.GET)
+	@RequestMapping(value = "account", method = RequestMethod.GET)
 	public String index(UserDetails userDetails, Model model) {
 		LOG.info(userDetails.toString());
-		return "user/index";
+		return "account/index";
 	}
 	
-	@RequestMapping(value = "user.json", method = RequestMethod.GET)
+	@RequestMapping(value = "account.json", method = RequestMethod.GET)
 	@ResponseStatus(value = HttpStatus.OK)
 	@ResponseBody
-	public User jsonGetUser(UserDetails userDetails) {
+	public Account jsonGetAccount(UserDetails userDetails) {
 		return userRepository.findByUsername(userDetails.getUsername());
 	}
 }

@@ -1,4 +1,4 @@
-package ${package}.user;
+package ${package}.account;
 
 import static org.junit.Assert.*;
 import static org.mockito.Matchers.*;
@@ -24,7 +24,7 @@ public class UserServiceTest {
 	private UserService userService = new UserService();
 
 	@Mock
-	private UserRepository userRepositoryMock;
+	private AccountRepository accountRepositoryMock;
 
 	@Rule
 	public ExpectedException thrown = ExpectedException.none();
@@ -34,7 +34,7 @@ public class UserServiceTest {
 		// act
 		userService.initialize();
 		// assert
-		verify(userRepositoryMock, times(2)).save(any(User.class));
+		verify(accountRepositoryMock, times(2)).save(any(User.class));
 	}
 
 	@Test
@@ -43,7 +43,7 @@ public class UserServiceTest {
 		thrown.expect(UsernameNotFoundException.class);
 		thrown.expectMessage("user not found");
 
-		when(userRepositoryMock.findByUsername("user")).thenReturn(null);
+		when(accountRepositoryMock.findByUsername("user")).thenReturn(null);
 		// act
 		userService.loadUserByUsername("user");
 	}
@@ -52,7 +52,7 @@ public class UserServiceTest {
 	public void shouldReturnUserDetails() {
 		// arrange
 		User demoUser = new User("user", "demo", "ROLE_USER");
-		when(userRepositoryMock.findByUsername("user")).thenReturn(demoUser);
+		when(accountRepositoryMock.findByUsername("user")).thenReturn(demoUser);
 
 		// act
 		UserDetails userDetails = userService.loadUserByUsername("user");

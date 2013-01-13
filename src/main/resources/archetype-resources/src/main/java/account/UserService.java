@@ -1,4 +1,4 @@
-package ${package}.user;
+package ${package}.account;
 
 import java.util.Collections;
 
@@ -8,28 +8,26 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.*;
-import org.springframework.stereotype.Service;
 
-@Service("userService")
 public class UserService implements UserDetailsService {
 	
 	@Autowired
-	private UserRepository userRepository;
+	private AccountRepository accountRepository;
 	
 	@PostConstruct	
 	protected void initialize() {
-		userRepository.save(new User("user", "demo", "ROLE_USER"));
-		userRepository.save(new User("admin", "admin", "ROLE_ADMIN"));
+		accountRepository.save(new Account("user", "demo", "ROLE_USER"));
+		accountRepository.save(new Account("admin", "admin", "ROLE_ADMIN"));
 	}
 	
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		User user = userRepository.findByUsername(username);
-		if(user == null) {
+		Account account = accountRepository.findByUsername(username);
+		if(account == null) {
 			throw new UsernameNotFoundException("user not found");
 		}
-		GrantedAuthority authority = new SimpleGrantedAuthority(user.getRole());
-		return new org.springframework.security.core.userdetails.User(user.getUsername(), user.getPassword(), Collections.singleton(authority));
+		GrantedAuthority authority = new SimpleGrantedAuthority(account.getRole());
+		return new User(account.getUsername(), account.getPassword(), Collections.singleton(authority));
 	}
 
 }
