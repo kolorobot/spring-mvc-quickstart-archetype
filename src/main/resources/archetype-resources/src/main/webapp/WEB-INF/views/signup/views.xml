@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+	<definition name="signup" extends="default">
+		<put-attribute name="body" value="/WEB-INF/views/signup/signup.jsp" />
+		<put-attribute name="header" value="" type="string" />
+		<put-attribute name="footer" value="" type="string" />
+		<put-list-attribute name="styles">
+			<add-attribute value="signin.css" />
+		</put-list-attribute>
+	</definition>	
+</tiles-definitions>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles"%>
+<%@ taglib uri="http://tiles.apache.org/tags-tiles-extras" prefix="tilesx"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
@@ -7,20 +8,19 @@
 <head>
 	<title>Hello World!</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<link href="<c:url value="/resources/css/bootstrap.css" />" rel="stylesheet" media="screen" />
+	<link href="<c:url value="/resources/css/bootstrap.min.css" />" rel="stylesheet" media="screen" />
+	<link href="<c:url value="/resources/css/core.css" />" rel="stylesheet" media="screen" />
+	
+	<tilesx:useAttribute id="styles" name="styles" classname="java.util.List" ignore="true" />
+	<c:forEach var="cssName" items="${styles}">
+		<link type="text/css" href="<c:url value="/resources/css/${cssName}"/>" rel="stylesheet" media="screen" />
+	</c:forEach>
 	
 	<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     
-	<style>
-      body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-        padding-bottom: 40px;
-        background-color: #f5f5f5;
-      }
-    </style>
 </head>
 <body>
 	

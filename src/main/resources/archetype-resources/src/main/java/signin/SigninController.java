@@ -1,11 +1,11 @@
-package ${package}.home;
+package ${package}.signin;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class DefaultController {
+public class SigninController {
 
-	@RequestMapping("/default/**/*")
-	public void defaultRequest() {}
+	@RequestMapping(value = "signin")
+	public void signin() {}
 }

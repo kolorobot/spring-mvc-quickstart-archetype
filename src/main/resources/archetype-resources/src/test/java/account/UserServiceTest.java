@@ -34,7 +34,7 @@ public class UserServiceTest {
 		// act
 		userService.initialize();
 		// assert
-		verify(accountRepositoryMock, times(2)).save(any(User.class));
+		verify(accountRepositoryMock, times(2)).save(any(Account.class));
 	}
 
 	@Test
@@ -51,7 +51,7 @@ public class UserServiceTest {
 	@Test
 	public void shouldReturnUserDetails() {
 		// arrange
-		User demoUser = new User("user", "demo", "ROLE_USER");
+		Account demoUser = new Account("user", "demo", "ROLE_USER");
 		when(accountRepositoryMock.findByUsername("user")).thenReturn(demoUser);
 
 		// act
