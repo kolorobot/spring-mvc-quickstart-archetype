@@ -4,10 +4,11 @@ import javax.persistence.*;
 
 import org.codehaus.jackson.annotate.JsonIgnore;
 
+@SuppressWarnings("serial")
 @Entity
 @Table(name = "account")
 @NamedQuery(name = Account.FIND_BY_USERNAME, query = "select a from Account a where a.username = :username")
-public class Account {
+public class Account implements java.io.Serializable {
 
 	public static final String FIND_BY_USERNAME = "Account.findByUsername";
 
