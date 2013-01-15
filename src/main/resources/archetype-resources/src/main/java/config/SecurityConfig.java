@@ -1,7 +1,6 @@
 package ${package}.config;
 
 import org.springframework.context.annotation.*;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.web.authentication.rememberme.TokenBasedRememberMeServices;
 
 import ${package}.account.UserService;
@@ -11,7 +10,7 @@ import ${package}.account.UserService;
 public class SecurityConfig {
 	
 	@Bean
-	public UserDetailsService userService() {
+	public UserService userService() {
 		return new UserService();
 	}
 

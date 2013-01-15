@@ -15,17 +15,23 @@ public class SignupController {
 	@Autowired
 	private AccountRepository accountRepository;
 	
+	@Autowired
+	private UserService userService;
+	
 	@RequestMapping(value = "signup")
 	public SignupForm signup() {
 		return new SignupForm();
 	}
 	
 	@RequestMapping(value = "signup", method = RequestMethod.POST)
-	public void signup(@Valid @ModelAttribute SignupForm signupForm, Errors errors) {
+	public String signup(@Valid @ModelAttribute SignupForm signupForm, Errors errors) {
 		if (errors.hasErrors()) {
-			return;
+			return null;
 		}
 		
-		accountRepository.save(signupForm.createAccount());
+		Account account = accountRepository.save(signupForm.createAccount());
+		userService.signin(account);
+		
+		return "redirect:/";
 	}
 }

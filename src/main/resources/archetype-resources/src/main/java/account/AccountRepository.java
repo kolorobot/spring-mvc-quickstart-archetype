@@ -13,8 +13,9 @@ public class AccountRepository {
 	private EntityManager entityManager;
 	
 	@Transactional
-	public void save(Account account) {
+	public Account save(Account account) {
 		entityManager.persist(account);
+		return account;
 	}
 	
 	public Account findByUsername(String username) {
