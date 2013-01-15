@@ -6,8 +6,8 @@ import ${package}.account.Account;
 
 public class SignupForm {
 
-	private static final String NOT_BLANK_MESSAGE = "The value may not be empty!";
-	private static final String EMAIL_MESSAGE = "The value must be a valid email!";
+	private static final String NOT_BLANK_MESSAGE = "{notBlank.message}";
+	private static final String EMAIL_MESSAGE = "{email.message}";
 
 	@NotBlank(message = SignupForm.NOT_BLANK_MESSAGE)
 	private String name;
