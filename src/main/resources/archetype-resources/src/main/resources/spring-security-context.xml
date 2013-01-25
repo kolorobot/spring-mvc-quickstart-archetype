@@ -19,7 +19,9 @@ http://www.springframework.org/schema/security/spring-security-3.1.xsd">
 	</security:http>
 	
 	<security:authentication-manager erase-credentials="true" >
-		<security:authentication-provider user-service-ref="userService" />
+		<security:authentication-provider user-service-ref="userService">
+			<security:password-encoder ref="passwordEncoder" />
+		</security:authentication-provider>
 	</security:authentication-manager>
 
 </beans>
