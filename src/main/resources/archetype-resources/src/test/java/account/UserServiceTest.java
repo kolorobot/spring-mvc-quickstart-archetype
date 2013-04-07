@@ -30,7 +30,7 @@ public class UserServiceTest {
 	public ExpectedException thrown = ExpectedException.none();
 
 	@Test
-	public void shouldInitializeWithOneDemoUser() {
+	public void shouldInitializeWithTwoDemoUsers() {
 		// act
 		userService.initialize();
 		// assert
