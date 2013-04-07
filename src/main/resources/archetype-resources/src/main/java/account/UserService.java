@@ -2,8 +2,6 @@ package ${package}.account;
 
 import java.util.Collections;
 
-import java.util.Collections;
-
 import javax.annotation.PostConstruct;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +28,7 @@ public class UserService implements UserDetailsService {
 		if(account == null) {
 			throw new UsernameNotFoundException("user not found");
 		}
-		return new User(account.getUsername(), account.getPassword(), Collections.singleton(createAuthority(account)));
+		return createUser(account);
 	}
 	
 	public void signin(Account account) {
@@ -38,7 +36,11 @@ public class UserService implements UserDetailsService {
 	}
 	
 	private Authentication authenticate(Account account) {
-		return new UsernamePasswordAuthenticationToken(account, null, Collections.singleton(createAuthority(account)));		
+		return new UsernamePasswordAuthenticationToken(createUser(account), null, Collections.singleton(createAuthority(account)));		
+	}
+	
+	private User createUser(Account account) {
+		return new User(account.getUsername(), account.getPassword(), Collections.singleton(createAuthority(account)));
 	}
 
 	private GrantedAuthority createAuthority(Account account) {

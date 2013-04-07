@@ -12,12 +12,14 @@
 			<a class="brand" href="#">Demo project</a>
 			<div class="nav-collapse collapse">
 				<ul class="nav">
-					<li class="active"><a href='<s:url value="/"></s:url>'>Home</a></li>					
+					<li class="active"><a href='<s:url value="/"></s:url>'>Home</a></li>
+				</ul>					
+				<ul class="nav pull-right">
 					<security:authorize access="!isAuthenticated()">
 						<li><a href='<s:url value="/signin"></s:url>'>Sign in</a></li>
 					</security:authorize>
 					<security:authorize access="isAuthenticated()">
-						<li><a href='<s:url value="/logout"></s:url>'>Logout</a></li>
+						<li><a href='<s:url value="/logout"></s:url>'>Logout (<security:authentication property="principal.username"/>)</a></li>
 					</security:authorize>
 				</ul>
 			</div>
