@@ -22,6 +22,6 @@ public class AccountController {
 	@ResponseBody
 	public Account accounts(UserDetails userDetails) {
 		LOG.info(userDetails.toString());
-		return userRepository.findByUsername(userDetails.getUsername());
+		return userRepository.findByEmail(userDetails.getUsername());
 	}
 }
