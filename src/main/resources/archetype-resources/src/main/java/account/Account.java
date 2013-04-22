@@ -10,7 +10,7 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 @NamedQuery(name = Account.FIND_BY_EMAIL, query = "select a from Account a where a.email = :email")
 public class Account implements java.io.Serializable {
 
-	public static final String FIND_BY_EMAIL = "Account.findByUsername";
+	public static final String FIND_BY_EMAIL = "Account.findByEmail";
 
 	@Id
 	@GeneratedValue
