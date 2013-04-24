@@ -21,12 +21,12 @@ run `mvn install` to install the archetype in your local repository
 Create a project
 ----------------
 
-    mvn archetype:generate
-        -DarchetypeGroupId=com.github.spring-mvc-archetypes
-        -DarchetypeArtifactId=spring-mvc-quickstart
-        -DarchetypeVersion=1.0.0-SNAPSHOT
-        -DgroupId=my.groupid
-        -DartifactId=my-artifactId
+    mvn archetype:generate \
+        -DarchetypeGroupId=com.github.spring-mvc-archetypes \
+        -DarchetypeArtifactId=spring-mvc-quickstart \
+        -DarchetypeVersion=1.0.0-SNAPSHOT \
+        -DgroupId=my.groupid \
+        -DartifactId=my-artifactId \
         -Dversion=version
 
 Run the project
