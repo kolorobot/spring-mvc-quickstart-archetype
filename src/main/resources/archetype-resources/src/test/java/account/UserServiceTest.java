@@ -43,22 +43,22 @@ public class UserServiceTest {
 		thrown.expect(UsernameNotFoundException.class);
 		thrown.expectMessage("user not found");
 
-		when(accountRepositoryMock.findByUsername("user")).thenReturn(null);
+		when(accountRepositoryMock.findByEmail("user@example.com")).thenReturn(null);
 		// act
-		userService.loadUserByUsername("user");
+		userService.loadUserByUsername("user@example.com");
 	}
 
 	@Test
 	public void shouldReturnUserDetails() {
 		// arrange
-		Account demoUser = new Account("user", "demo", "ROLE_USER");
-		when(accountRepositoryMock.findByUsername("user")).thenReturn(demoUser);
+		Account demoUser = new Account("user@example.com", "demo", "ROLE_USER");
+		when(accountRepositoryMock.findByEmail("user@example.com")).thenReturn(demoUser);
 
 		// act
-		UserDetails userDetails = userService.loadUserByUsername("user");
+		UserDetails userDetails = userService.loadUserByUsername("user@example.com");
 
 		// assert
-		assertEquals(demoUser.getUsername(), userDetails.getUsername());
+		assertEquals(demoUser.getEmail(), userDetails.getUsername());
 		assertEquals(demoUser.getPassword(), userDetails.getPassword());
 		assertTrue(hasAuthority(userDetails, demoUser.getRole()));
 	}
