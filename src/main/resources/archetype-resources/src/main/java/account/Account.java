@@ -23,10 +23,8 @@ public class Account implements java.io.Serializable {
 	private String password;
 
 	private String role = "ROLE_USER";
-	
-	private String name;
-	
-	protected Account() {
+
+    protected Account() {
 
 	}
 	
@@ -40,15 +38,7 @@ public class Account implements java.io.Serializable {
 		return id;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getEmail() {
+    public String getEmail() {
 		return email;
 	}
 
