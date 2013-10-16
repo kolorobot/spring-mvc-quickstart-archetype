@@ -10,6 +10,6 @@ public class HomeController {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String index(Principal principal) {
-		return principal != null ? "homeSignedIn" : "homeNotSignedIn";
+		return principal != null ? "home/homeSignedIn" : "home/homeNotSignedIn";
 	}
 }

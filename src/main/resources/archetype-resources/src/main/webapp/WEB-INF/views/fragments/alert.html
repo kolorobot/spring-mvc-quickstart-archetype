@@ -1,0 +1,10 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<body>
+    <div th:fragment="alert" class="alert alert-dismissable" th:if="${message != null}" th:classappend="'alert-' + ${#strings.toLowerCase(message.type)}">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        <span th:text="${message.message}">Test</span>
+    </div>
+</body>
+</html>
+

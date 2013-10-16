@@ -13,7 +13,7 @@ public class Message {
      * The type of the message to be displayed. The type is used to show message in a different style.
      */
 	public static enum Type {
-		ERROR, WARNING, INFO, SUCCESS;
+        DANGER, WARNING, INFO, SUCCESS;
 	}
 
 	private final String message;

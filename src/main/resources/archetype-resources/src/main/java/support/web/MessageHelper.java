@@ -16,7 +16,7 @@ public final class MessageHelper {
     }
 
     public static void addErrorAttribute(RedirectAttributes ra, String message, Object... args) {
-        addAttribute(ra, message, Message.Type.ERROR, args);
+        addAttribute(ra, message, Message.Type.DANGER, args);
     }
 
     public static void addInfoAttribute(RedirectAttributes ra, String message, Object... args) {
@@ -36,7 +36,7 @@ public final class MessageHelper {
     }
 
     public static void addErrorAttribute(Model model, String message, Object... args) {
-        addAttribute(model, message, Message.Type.ERROR, args);
+        addAttribute(model, message, Message.Type.DANGER, args);
     }
 
     public static void addInfoAttribute(Model model, String message, Object... args) {
