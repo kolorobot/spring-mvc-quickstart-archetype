@@ -9,7 +9,8 @@ Generated project characteristics
 -------------------------
 * No-xml Spring MVC 3.2 web application for Servlet 3.0 environment
 * Thymeleaf, Bootstrap
-* JPA 2.0 (Hibernate/HSQLDB)
+* JPA 2.0 (Hibernate/HSQLDB/Spring Data JPA)
+* MongoDB (Spring Data Mongo)
 * JUnit/Mockito
 * Spring Security 3.1
 
@@ -33,7 +34,9 @@ Run the project
 ----------------
 
 	mvn tomcat7:run
-	
+
+Note: No additional services are required in order to start the application. Mongo DB configuration is in place but it is not used in the code.
+
 Creating a new project in Eclipse
 ----------------------------------
 
@@ -41,5 +44,3 @@ Creating a new project in Eclipse
 * Go to `Preferences > Maven > Archetypes` and `Add Local Catalog`
 * Select the catalog from file (`archetype-catalog.xml`) 
 * Create new Maven project and select the archetype (remember so select `Include snapshot archetypes`).
-
-
