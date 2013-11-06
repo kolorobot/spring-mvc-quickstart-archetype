@@ -11,9 +11,9 @@
 <body>
 
 <form class="form-narrow form-horizontal" action="/j_spring_security_check" method="post" th:action="@{/j_spring_security_check}">
-    <div class="alert alert-danger" th:if="${param.error != null}">
-        Sign in error. Please try again.
-    </div>
+    <th:block th:if="${param.error != null}">
+        <div th:replace="fragments/alert :: alert (type='danger', message='Sign in error. Please try again.')">Alert</div>
+    </th:block>
     <fieldset>
         <legend>Please Sign In</legend>
         <div class="form-group">
