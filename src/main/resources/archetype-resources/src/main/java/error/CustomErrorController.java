@@ -36,7 +36,7 @@ class CustomErrorController {
 		); 
 		
 		model.addAttribute("errorMessage", message);
-		return "generalError";
+        return "error/general";
 	}
 
 	private String getExceptionMessage(Throwable throwable, Integer statusCode) {
