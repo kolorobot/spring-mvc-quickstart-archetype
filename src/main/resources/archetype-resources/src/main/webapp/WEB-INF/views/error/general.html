@@ -10,7 +10,7 @@
 
 <body>
 <div class="container">
-    <p th:text="${errorMessage}">Error has occured</p>
+    <div th:replace="fragments/alert :: alert (type='danger', message=${errorMessage})">Error: Error</div>
     <div th:include="fragments/footer :: footer">&copy; 2013 The Static Templates</div>
 </div>
 
