@@ -14,13 +14,12 @@
 <div class="container">
     <!-- /* Handle the flash message */-->
     <th:block th:if="${message != null}">
-        <div th:replace="fragments/alert :: alert (type=${#strings.toLowerCase(message.type)}, message=${message.message})">&nbsp;</div>
+        <!-- /* The message code is returned from the @Controller */ -->
+        <div th:replace="fragments/alert :: alert (type=${#strings.toLowerCase(message.type)}, message=#{${message.message}(${#authentication.name})})">&nbsp;</div>
     </th:block>
     <p>
-        Hello <span th:text="${#authentication.name}">User</span>!
         Welcome to the Spring MVC Quickstart application!
     </p>
-    <div th:replace="fragments/footer :: footer">&copy; 2013 The Static Templates</div>
 </div>
 </body>
 </html>

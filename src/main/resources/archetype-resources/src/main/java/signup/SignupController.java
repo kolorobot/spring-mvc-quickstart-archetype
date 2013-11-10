@@ -34,12 +34,10 @@ public class SignupController {
 		if (errors.hasErrors()) {
 			return SIGNUP_VIEW_NAME;
 		}
-		
 		Account account = accountRepository.save(signupForm.createAccount());
 		userService.signin(account);
-
-        MessageHelper.addSuccessAttribute(ra, "Congratulations! You have successfully signed up.");
-		
+        // see /WEB-INF/i18n/messages.properties and /WEB-INF/views/homeSignedIn.html
+        MessageHelper.addSuccessAttribute(ra, "signup.success");
 		return "redirect:/";
 	}
 }
