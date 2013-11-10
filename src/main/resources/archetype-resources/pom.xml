@@ -106,7 +106,7 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
-            <version>4.2.3.Final</version>
+            <version>4.2.5.Final</version>
         </dependency>
         <dependency>
             <groupId>org.hsqldb</groupId>
