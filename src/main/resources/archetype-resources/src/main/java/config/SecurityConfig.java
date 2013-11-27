@@ -9,7 +9,7 @@ import ${package}.account.UserService;
 
 @Configuration
 @ImportResource(value = "classpath:spring-security-context.xml")
-public class SecurityConfig {
+class SecurityConfig {
 	
 	@Bean
 	public UserService userService() {
