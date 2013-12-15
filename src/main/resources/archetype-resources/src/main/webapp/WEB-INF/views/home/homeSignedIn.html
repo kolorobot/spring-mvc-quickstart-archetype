@@ -10,7 +10,7 @@
     <script src="../../../resources/js/bootstrap.min.js" th:src="@{/resources/js/bootstrap.min.js}"></script>
 </head>
 <body>
-<div th:substituteby="fragments/header :: header">&nbsp;</div>
+<div th:replace="fragments/header :: header">&nbsp;</div>
 <div class="container">
     <!-- /* Handle the flash message */-->
     <th:block th:if="${message != null}">
