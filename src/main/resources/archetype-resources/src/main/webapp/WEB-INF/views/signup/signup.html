@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-
+<html>
 <head>
     <title>Signup</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -9,9 +8,7 @@
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="../../../resources/js/bootstrap.min.js" th:src="@{/resources/js/bootstrap.min.js}"></script>
 </head>
-
 <body>
-
 <form class="form-narrow form-horizontal" method="post" th:action="@{/signup}" th:object="${signupForm}">
     <!-- /* Show general error message when form contains errors */ -->
     <th:block th:if="${#fields.hasErrors('${signupForm.*}')}">
