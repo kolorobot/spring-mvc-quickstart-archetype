@@ -11,14 +11,14 @@
 <body>
 <div th:replace="fragments/header :: header">Header</div>
 <div class="container">
-    <div class="hero-unit">
+    <div class="text-center">
         <h1>Test</h1>
-        <p>
+        <p class="lead">
             Welcome to the Spring MVC Quickstart application!
             Get started quickly by signing up.
         </p>
         <p>
-            <a href="/signup" th:href="@{/signup}" class="btn btn-large btn-success">Sign up</a>
+            <a href="/signup" th:href="@{/signup}" class="btn btn-success btn-lg">Sign up</a>
         </p>
     </div>
     <div th:replace="fragments/footer :: footer">&copy; 2013 The Static Templates</div>
