@@ -17,28 +17,31 @@ Generated project characteristics
 Installation
 ------------
 
-run:
+run in terminal:
+----------------
 ```bash
-git clone https://github.com/kolorobot/spring-mvc-quickstart-archetype.git
-cd spring-mvc-quickstart-archetype
-mvn clean install` to install the archetype in your local repository
+$ git clone https://github.com/kolorobot/spring-mvc-quickstart-archetype.git
+$ cd spring-mvc-quickstart-archetype
+$ mvn clean install` to install the archetype in your local repository
 ```
 
 Create a project
 ----------------
-
-    mvn archetype:generate \
+```bash
+$ mvn archetype:generate \
         -DarchetypeGroupId=com.github.spring-mvc-archetypes \
         -DarchetypeArtifactId=spring-mvc-quickstart \
         -DarchetypeVersion=1.0.0-SNAPSHOT \
         -DgroupId=my.groupid \
         -DartifactId=my-artifactId \
         -Dversion=version
+```
 
 Run the project
 ----------------
-
-	mvn test tomcat7:run
+```bash
+$ mvn test tomcat7:run
+```
 
 Note: No additional services are required in order to start the application. Mongo DB configuration is in place but it is not used in the code.
 
