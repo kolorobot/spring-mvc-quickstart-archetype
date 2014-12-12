@@ -11,14 +11,15 @@
     <name>Spring MVC Application</name>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java-version>1.7</java-version>
-        <org.springframework-version>4.0.3.RELEASE</org.springframework-version>
-        <org.springframework.security-version>3.2.3.RELEASE</org.springframework.security-version>
-        <org.aspectj-version>1.7.4</org.aspectj-version>
-        <org.slf4j-version>1.7.5</org.slf4j-version>
-        <ch.qos.logback-version>1.0.13</ch.qos.logback-version>
-        <org.thymeleaf-version>2.1.2.RELEASE</org.thymeleaf-version>
+        <java-version>1.8</java-version>
+        <org.springframework-version>4.0.8.RELEASE</org.springframework-version>
+        <org.springframework.security-version>3.2.5.RELEASE</org.springframework.security-version>
+        <org.aspectj-version>1.8.4</org.aspectj-version>
+        <org.slf4j-version>1.7.7</org.slf4j-version>
+        <ch.qos.logback-version>1.1.2</ch.qos.logback-version>
+        <org.thymeleaf-version>2.1.3.RELEASE</org.thymeleaf-version>
         <org.thymeleaf.extras.springsecurity3-version>2.1.1.RELEASE</org.thymeleaf.extras.springsecurity3-version>
+        <org.hsqldb-version>2.3.2</org.hsqldb-version>
     </properties>
     <repositories>
         <repository>
@@ -96,6 +97,13 @@
             <groupId>org.thymeleaf</groupId>
             <artifactId>thymeleaf-spring4</artifactId>
             <version>${org.thymeleaf-version}</version>
+            <!-- Avoid org.hibernate.jpa.boot.archive.spi.ArchiveException: Could not build ClassFile in Java 8 -->
+            <exclusions>
+                <exclusion>
+                    <artifactId>javassist</artifactId>
+                    <groupId>org.javassist</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.thymeleaf.extras</groupId>
@@ -123,7 +131,7 @@
         <dependency>
             <groupId>org.hsqldb</groupId>
             <artifactId>hsqldb</artifactId>
-            <version>2.3.0</version>
+            <version>${org.hsqldb-version}</version>
         </dependency>
         <!-- Spring Data -->
         <dependency>
