@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.spring-mvc-archetypes</groupId>
 	<artifactId>spring-mvc-quickstart</artifactId>
-	<version>1.0.0-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<name>Spring MVC Maven Archetype: Quickstart</name>
 	<description></description>
 	<url></url>
