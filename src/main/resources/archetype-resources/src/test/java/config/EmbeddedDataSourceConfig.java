@@ -14,9 +14,8 @@ import javax.sql.DataSource;
  */
 @Configuration
 @Profile("test")
-public class EmbeddedDataSourceConfig implements DataSourceConfig {
+public class EmbeddedDataSourceConfig {
 
-    @Override
     @Bean
     public DataSource dataSource() {
         return new EmbeddedDatabaseBuilder()
