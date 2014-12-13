@@ -30,8 +30,8 @@ class WebMvcConfig extends WebMvcConfigurationSupport {
     private static final String MESSAGE_SOURCE = "/WEB-INF/i18n/messages";
     private static final String VIEWS = "/WEB-INF/views/";
 
-    private static final String RESOURCES_HANDLER = "/resources/";
-    private static final String RESOURCES_LOCATION = RESOURCES_HANDLER + "**";
+    private static final String RESOURCES_LOCATION = "/resources/";
+    private static final String RESOURCES_HANDLER = RESOURCES_LOCATION + "**";
 
     @Override
     public RequestMappingHandlerMapping requestMappingHandlerMapping() {
