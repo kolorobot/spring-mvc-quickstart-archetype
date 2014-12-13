@@ -3,7 +3,7 @@ package ${package}.support.web;
 /**
  * A message to be displayed in web context. Depending on the type, different style will be applied.
  */
-public class Message {
+public class Message implements java.io.Serializable {
     /**
      * Name of the flash attribute.
      */
