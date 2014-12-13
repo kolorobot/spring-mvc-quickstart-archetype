@@ -35,7 +35,7 @@ public class UserAuthenticationIntegrationTest extends WebSecurityConfigurationA
                 Assert.assertEquals(securityContext.getAuthentication().getName(), username);
             }
         };
-        mockMvc.perform(post("/j_spring_security_check").param("j_username", username).param("j_password", "demo"))
+        mockMvc.perform(post("/authenticate").param("username", username).param("password", "demo"))
                 .andExpect(redirectedUrl("/"))
                 .andExpect(matcher);
     }
@@ -43,7 +43,7 @@ public class UserAuthenticationIntegrationTest extends WebSecurityConfigurationA
     @Test
     public void userAuthenticationFails() throws Exception {
         final String username = "user";
-        mockMvc.perform(post("/j_spring_security_check").param("j_username", username).param("j_password", "invalid"))
+        mockMvc.perform(post("/authenticate").param("username", username).param("password", "invalid"))
                 .andExpect(redirectedUrl("/signin?error=1"))
                 .andExpect(new ResultMatcher() {
                     public void match(MvcResult mvcResult) throws Exception {
