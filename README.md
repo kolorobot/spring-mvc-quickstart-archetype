@@ -25,7 +25,6 @@ To install the archetype in your local repository execute following commands:
     mvn clean install
 ```
 
-
 Create a project
 ----------------
 
@@ -61,3 +60,5 @@ Creating a new project in Eclipse
 * Go to `Preferences > Maven > Archetypes` and `Add Local Catalog`
 * Select the catalog from file (`archetype-catalog.xml`) 
 * Create new Maven project and select the archetype (remember so select `Include snapshot archetypes`)
+
+If you have any troubles with installation in Eclipse, you may want to have a look at this issue: #74
