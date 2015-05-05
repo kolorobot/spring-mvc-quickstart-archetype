@@ -70,6 +70,13 @@
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
+            <!-- Avoid issue #72 Could not initialize class org.thymeleaf.templateresolver.ServletContextTemplateResolver due to 'validation is not supported' -->
+            <exclusions>
+                <exclusion>
+            		<artifactId>pull-parser</artifactId>
+            		<groupId>pull-parser</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <!-- Avoid: javax.validation.ValidationException: HV000183: Unable to load 'javax.el.ExpressionFactory' -->
         <dependency>
