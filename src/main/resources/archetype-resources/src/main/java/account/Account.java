@@ -2,7 +2,7 @@ package ${package}.account;
 
 import javax.persistence.*;
 
-import org.codehaus.jackson.annotate.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @SuppressWarnings("serial")
 @Entity
