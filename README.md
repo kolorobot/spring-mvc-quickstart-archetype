@@ -62,3 +62,15 @@ Creating a new project in Eclipse
 * Create new Maven project and select the archetype (remember so select `Include snapshot archetypes`)
 
 If you have any troubles with installation in Eclipse, you may want to have a look at this issue: #74
+
+Creating a new project in IntelliJ
+----------------------------------
+
+* Create new project `File > New > Project`
+* Click Maven on the left hand side of the new project dialog
+* Check `Create from archetype`
+* Click the `Add Archetype` button
+* Set Group Id to `com.github.spring-mvc-archetypes`
+* Set Artifact Id to `spring-mvc-quickstart`
+* Set Version to `1.0.0`
+* Click next and create the project
