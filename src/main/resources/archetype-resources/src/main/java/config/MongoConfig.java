@@ -6,6 +6,7 @@ import com.mongodb.Mongo;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.data.mongodb.MongoDbFactory;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.SimpleMongoDbFactory;
@@ -16,6 +17,7 @@ import org.springframework.data.mongodb.core.mapping.MongoMappingContext;
 
 
 @Configuration
+@Lazy
 class MongoConfig {
 
     @Bean

@@ -8,25 +8,23 @@ import org.springframework.context.annotation.*;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.annotation.web.servlet.configuration.EnableWebMvcSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.crypto.password.StandardPasswordEncoder;
 import org.springframework.security.web.authentication.rememberme.TokenBasedRememberMeServices;
 
-import ${package}.account.UserService;
+import ${package}.account.AccountService;
 
 @Configuration
-@EnableWebMvcSecurity
+@EnableWebSecurity
 class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Bean
-    public UserService userService() {
-        return new UserService();
-    }
+    @Autowired
+    private AccountService accountService;
 
     @Bean
     public TokenBasedRememberMeServices rememberMeServices() {
-        return new TokenBasedRememberMeServices("remember-me-key", userService());
+        return new TokenBasedRememberMeServices("remember-me-key", accountService);
     }
 
     @Bean
@@ -38,7 +36,7 @@ class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth
             .eraseCredentials(true)
-            .userDetailsService(userService())
+            .userDetailsService(accountService)
             .passwordEncoder(passwordEncoder());
     }
 
