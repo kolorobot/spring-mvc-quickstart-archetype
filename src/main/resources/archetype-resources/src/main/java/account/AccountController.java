@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @Controller
-@Secured("ROLE_USER")
 class AccountController {
 
     private AccountRepository accountRepository;
@@ -26,8 +25,17 @@ class AccountController {
     @RequestMapping(value = "account/current", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     @ResponseBody
-    public Account accounts(Principal principal) {
+    @Secured({"ROLE_USER", "ROLE_ADMIN"})
+    public Account currentAccount(Principal principal) {
         Assert.notNull(principal);
         return accountRepository.findOneByEmail(principal.getName());
+    }
+
+    @RequestMapping(value = "account/manage", method = RequestMethod.GET)
+    @ResponseStatus(value = HttpStatus.OK)
+    @ResponseBody
+    @Secured("ROLE_ADMIN")
+    public String manageAccount() {
+        return "Administrator's Area";
     }
 }
