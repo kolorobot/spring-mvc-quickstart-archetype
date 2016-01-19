@@ -1,10 +1,7 @@
 package ${package}.config;
 
-import static org.springframework.context.annotation.ComponentScan.Filter;
-
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.springframework.stereotype.Controller;
@@ -31,11 +28,6 @@ class WebMvcConfig extends WebMvcConfigurationSupport {
 
     private static final String RESOURCES_LOCATION = "/resources/";
     private static final String RESOURCES_HANDLER = RESOURCES_LOCATION + "**";
-
-    @Bean
-    public static PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer() {
-        return new PropertySourcesPlaceholderConfigurer();
-    }
 
     @Override
     public RequestMappingHandlerMapping requestMappingHandlerMapping() {
