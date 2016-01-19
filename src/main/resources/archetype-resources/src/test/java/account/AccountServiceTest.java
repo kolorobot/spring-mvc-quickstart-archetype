@@ -16,15 +16,19 @@ import org.mockito.runners.MockitoJUnitRunner;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @RunWith(MockitoJUnitRunner.class)
-public class UserServiceTest {
+public class AccountServiceTest {
 
 	@InjectMocks
-	private UserService userService = new UserService();
+	private AccountService accountService = new AccountService();
 
 	@Mock
 	private AccountRepository accountRepositoryMock;
+
+	@Mock
+	private PasswordEncoder passwordEncoder;
 
 	@Rule
 	public ExpectedException thrown = ExpectedException.none();
@@ -32,7 +36,7 @@ public class UserServiceTest {
 	@Test
 	public void shouldInitializeWithTwoDemoUsers() {
 		// act
-		userService.initialize();
+		accountService.initialize();
 		// assert
 		verify(accountRepositoryMock, times(2)).save(any(Account.class));
 	}
@@ -43,19 +47,19 @@ public class UserServiceTest {
 		thrown.expect(UsernameNotFoundException.class);
 		thrown.expectMessage("user not found");
 
-		when(accountRepositoryMock.findByEmail("user@example.com")).thenReturn(null);
+		when(accountRepositoryMock.findOneByEmail("user@example.com")).thenReturn(null);
 		// act
-		userService.loadUserByUsername("user@example.com");
+		accountService.loadUserByUsername("user@example.com");
 	}
 
 	@Test
 	public void shouldReturnUserDetails() {
 		// arrange
 		Account demoUser = new Account("user@example.com", "demo", "ROLE_USER");
-		when(accountRepositoryMock.findByEmail("user@example.com")).thenReturn(demoUser);
+		when(accountRepositoryMock.findOneByEmail("user@example.com")).thenReturn(demoUser);
 
 		// act
-		UserDetails userDetails = userService.loadUserByUsername("user@example.com");
+		UserDetails userDetails = accountService.loadUserByUsername("user@example.com");
 
 		// assert
 		assertThat(demoUser.getEmail()).isEqualTo(userDetails.getUsername());

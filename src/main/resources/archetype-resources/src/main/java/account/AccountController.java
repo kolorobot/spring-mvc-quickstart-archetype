@@ -28,6 +28,6 @@ class AccountController {
     @ResponseBody
     public Account accounts(Principal principal) {
         Assert.notNull(principal);
-        return accountRepository.findByEmail(principal.getName());
+        return accountRepository.findOneByEmail(principal.getName());
     }
 }
