@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @Controller
 class AccountController {
@@ -31,11 +32,11 @@ class AccountController {
         return accountRepository.findOneByEmail(principal.getName());
     }
 
-    @RequestMapping(value = "account/manage", method = RequestMethod.GET)
+    @RequestMapping(value = "account/{id}", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
     @ResponseBody
     @Secured("ROLE_ADMIN")
-    public String manageAccount() {
-        return "Administrator's Area";
+    public Account account(@PathVariable("id") Long id) {
+        return accountRepository.findOne(id);
     }
 }
