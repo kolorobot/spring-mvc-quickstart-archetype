@@ -7,12 +7,12 @@ The project is a Maven archetype for Spring MVC 4 web application.
 
 Generated project characteristics
 -------------------------
-* No-xml Spring MVC 4 web application for Servlet 3.0 environment
+* No-xml Spring MVC 4 web application
 * Thymeleaf, Bootstrap
-* JPA 2.0 (Hibernate/HSQLDB/Spring Data JPA)
+* JPA (Hibernate/HSQLDB/Spring Data JPA)
 * MongoDB (Spring Data Mongo)
 * JUnit/Mockito
-* Spring Security 3.2
+* Spring Security
 
 Installation
 ------------
@@ -74,3 +74,28 @@ Creating a new project in IntelliJ
 * Set Artifact Id to `spring-mvc-quickstart`
 * Set Version to `1.0.0`
 * Click next and create the project
+
+Switching to PostgreSQL
+-----------------------
+
+* Add dependency to PostgreSQL driver in POM:
+
+```
+<dependency>
+    <groupId>org.postgresql</groupId>
+    <artifactId>postgresql</artifactId>
+    <version>9.4.1207</version>
+</dependency>
+```
+
+* Change `persistence.properties`:
+
+```
+dataSource.driverClassName=org.postgresql.Driver
+dataSource.url=jdbc:postgresql:postgres
+dataSource.username=postgres
+dataSource.password=postgres
+
+hibernate.dialect=org.hibernate.dialect.PostgreSQL9Dialect
+hibernate.hbm2ddl.auto=create
+```

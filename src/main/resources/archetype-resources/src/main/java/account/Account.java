@@ -4,8 +4,7 @@ import java.time.ZonedDateTime;
 
 import javax.persistence.*;
 
-import java.time.ZoneOffset;
-import java.time.ZonedDateTime;
+import java.time.Instant;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -26,7 +25,7 @@ public class Account implements java.io.Serializable {
 
 	private String role = "ROLE_USER";
 
-	private ZonedDateTime created;
+	private Instant created;
 
     protected Account() {
 
@@ -36,7 +35,7 @@ public class Account implements java.io.Serializable {
 		this.email = email;
 		this.password = password;
 		this.role = role;
-		this.created = ZonedDateTime.now(ZoneOffset.UTC);
+		this.created = Instant.now();
 	}
 
 	public Long getId() {
@@ -67,7 +66,7 @@ public class Account implements java.io.Serializable {
 		this.role = role;
 	}
 
-	public ZonedDateTime getCreated() {
+	public Instant getCreated() {
 		return created;
 	}
 }
