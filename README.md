@@ -28,6 +28,8 @@ To install the archetype in your local repository execute following commands:
 Create a project
 ----------------
 
+Create a new empty directory for your project and navigate into it.
+
 ```bash
     mvn archetype:generate \
         -DarchetypeGroupId=com.github.spring-mvc-archetypes \
