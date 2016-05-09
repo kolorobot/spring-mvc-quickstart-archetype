@@ -101,3 +101,21 @@ dataSource.password=postgres
 hibernate.dialect=org.hibernate.dialect.PostgreSQL9Dialect
 hibernate.hbm2ddl.auto=create
 ```
+
+Enabling MongoDB repositories
+-----------------------------
+
+* Open MongoConfig class and uncomment the following line:
+
+```
+// @EnableMongoRepositories(basePackageClasses = Application.class)
+```
+
+Now you can add repositories to your project:
+
+```
+@Repository
+public interface MyRepository extends MongoRepository<MyDocument, String> {
+
+}
+```
