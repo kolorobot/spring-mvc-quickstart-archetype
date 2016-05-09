@@ -1,11 +1,5 @@
 package ${package}.account;
 
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Matchers.*;
-import static org.mockito.Mockito.*;
-
-import java.util.Collection;
-
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -17,6 +11,11 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
+
+import static java.util.function.Predicate.isEqual;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Matchers.*;
+import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
 public class AccountServiceTest {
@@ -64,16 +63,12 @@ public class AccountServiceTest {
 		// assert
 		assertThat(demoUser.getEmail()).isEqualTo(userDetails.getUsername());
 		assertThat(demoUser.getPassword()).isEqualTo(userDetails.getPassword());
-        assertThat(hasAuthority(userDetails, demoUser.getRole()));
+		assertThat(hasAuthority(userDetails, demoUser.getRole())).isTrue();
 	}
 
 	private boolean hasAuthority(UserDetails userDetails, String role) {
-		Collection<? extends GrantedAuthority> authorities = userDetails.getAuthorities();
-		for(GrantedAuthority authority : authorities) {
-			if(authority.getAuthority().equals(role)) {
-				return true;
-			}
-		}
-		return false;
+		return userDetails.getAuthorities().stream()
+				.map(GrantedAuthority::getAuthority)
+				.anyMatch(isEqual(role));
 	}
 }
