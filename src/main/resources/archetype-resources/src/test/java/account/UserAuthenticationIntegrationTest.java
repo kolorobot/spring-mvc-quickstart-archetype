@@ -4,10 +4,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.web.context.HttpSessionSecurityContextRepository;
-import org.springframework.test.web.servlet.MvcResult;
-import org.springframework.test.web.servlet.ResultMatcher;
-
-import javax.servlet.http.HttpSession;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -28,16 +24,11 @@ public class UserAuthenticationIntegrationTest extends WebSecurityConfigurationA
     @Test
     public void userAuthenticates() throws Exception {
         final String username = "user";
-        ResultMatcher matcher = new ResultMatcher() {
-            public void match(MvcResult mvcResult) throws Exception {
-                HttpSession session = mvcResult.getRequest().getSession();
-                SecurityContext securityContext = (SecurityContext) session.getAttribute(SEC_CONTEXT_ATTR);
-                Assert.assertEquals(securityContext.getAuthentication().getName(), username);
-            }
-        };
+
         mockMvc.perform(post("/authenticate").param("username", username).param("password", "demo"))
                 .andExpect(redirectedUrl("/"))
-                .andExpect(matcher);
+                .andExpect(r -> Assert.assertEquals(((SecurityContext) r.getRequest().getSession().getAttribute(SEC_CONTEXT_ATTR)).getAuthentication().getName(), username));
+
     }
 
     @Test
@@ -45,12 +36,6 @@ public class UserAuthenticationIntegrationTest extends WebSecurityConfigurationA
         final String username = "user";
         mockMvc.perform(post("/authenticate").param("username", username).param("password", "invalid"))
                 .andExpect(redirectedUrl("/signin?error=1"))
-                .andExpect(new ResultMatcher() {
-                    public void match(MvcResult mvcResult) throws Exception {
-                        HttpSession session = mvcResult.getRequest().getSession();
-                        SecurityContext securityContext = (SecurityContext) session.getAttribute(SEC_CONTEXT_ATTR);
-                        Assert.assertNull(securityContext);
-                    }
-                });
+                .andExpect(r -> Assert.assertNull(r.getRequest().getSession().getAttribute(SEC_CONTEXT_ATTR)));
     }
 }
