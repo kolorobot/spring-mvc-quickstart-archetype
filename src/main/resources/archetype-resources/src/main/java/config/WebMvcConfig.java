@@ -56,22 +56,22 @@ class WebMvcConfig extends WebMvcConfigurationSupport {
         return resolver;
     }
 
-@Bean
-public SpringTemplateEngine templateEngine() {
-    SpringTemplateEngine templateEngine = new SpringTemplateEngine();
-    templateEngine.setTemplateResolver(templateResolver());
-    templateEngine.addDialect(new SpringSecurityDialect());
-    templateEngine.addDialect(new Java8TimeDialect());
-    return templateEngine;
-}
+    @Bean
+    public SpringTemplateEngine templateEngine() {
+        SpringTemplateEngine templateEngine = new SpringTemplateEngine();
+        templateEngine.setTemplateResolver(templateResolver());
+        templateEngine.addDialect(new SpringSecurityDialect());
+        templateEngine.addDialect(new Java8TimeDialect());
+        return templateEngine;
+    }
 
-@Bean
-public ViewResolver viewResolver() {
-    ThymeleafViewResolver thymeleafViewResolver = new ThymeleafViewResolver();
-    thymeleafViewResolver.setTemplateEngine(templateEngine());
-    thymeleafViewResolver.setCharacterEncoding("UTF-8");
-    return thymeleafViewResolver;
-}
+    @Bean
+    public ViewResolver viewResolver() {
+        ThymeleafViewResolver thymeleafViewResolver = new ThymeleafViewResolver();
+        thymeleafViewResolver.setTemplateEngine(templateEngine());
+        thymeleafViewResolver.setCharacterEncoding("UTF-8");
+        return thymeleafViewResolver;
+    }
 
     @Override
     public Validator getValidator() {
