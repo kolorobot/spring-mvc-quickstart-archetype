@@ -10,14 +10,52 @@ Generated project characteristics
 * No-xml Spring MVC 4 web application
 * Thymeleaf, Bootstrap
 * JPA (Hibernate/HSQLDB/Spring Data JPA)
-* MongoDB (Spring Data Mongo)
 * JUnit/Mockito
 * Spring Security
+* MongoDB (Spring Data Mongo)
 
-Installation
-------------
+Prerequisites
+-------------
 
-To install the archetype in your local repository execute following commands:
+- JDK 8
+- Maven 3
+
+Create a project
+----------------
+
+```bash
+    mvn archetype:generate \
+        -DarchetypeGroupId=pl.codeleak \
+        -DarchetypeArtifactId=spring-mvc-quickstart \
+        -DarchetypeVersion=1.0.0 \
+        -DgroupId=my.groupid \
+        -DartifactId=my-artifactId \
+        -Dversion=version \
+        -DarchetypeRepository=http://kolorobot.github.io/spring-mvc-quickstart-archetype
+```
+
+Note: The above command will bootstrap a project using the archetype published here: http://kolorobot.github.io/spring-mvc-quickstart-archetype
+
+Run the project
+----------------
+
+Navigate to newly created project directory (`my-artifactId`) and then run:
+
+```bash
+	mvn test tomcat7:run
+```
+
+Test in the browser
+-------------------
+
+	http://localhost:8080/
+
+Note: No additional services are required in order to start the application. Mongo DB configuration is in place but it is not used in the code.
+
+Install archetype locally
+-------------------------
+
+To install the archetype in your local repository execute the following commands:
 
 ```bash
     git clone https://github.com/kolorobot/spring-mvc-quickstart-archetype.git
@@ -25,10 +63,10 @@ To install the archetype in your local repository execute following commands:
     mvn clean install
 ```
 
-Create a project
-----------------
+Create a project from a local repository
+----------------------------------------
 
-Create a new empty directory for your project and navigate into it.
+Create a new empty directory for your project and navigate into it and then run:
 
 ```bash
     mvn archetype:generate \
@@ -40,19 +78,7 @@ Create a new empty directory for your project and navigate into it.
         -Dversion=version
 ```
 
-Run the project
-----------------
-
-```bash
-	mvn test tomcat7:run
-```
-
-Test on the browser
--------------------
-
-	http://localhost:8080/
-
-Note: No additional services are required in order to start the application. Mongo DB configuration is in place but it is not used in the code.
+Note: The above command will bootstrap a project using the archetype published in your local repository.
 
 Creating a new project in Eclipse
 ----------------------------------
