@@ -52,6 +52,41 @@ Test in the browser
 
 Note: No additional services are required in order to start the application. Mongo DB configuration is in place but it is not used in the code.
 
+Create a new project in IntelliJ
+--------------------------------
+
+* Create new project `File > New > Project`
+* Click Maven on the left hand side of the new project dialog
+* Check `Create from archetype`
+* Click the `Add Archetype` button
+* Set `Group Id` to `pl.codeleak`
+* Set `Artifact Id` to `spring-mvc-quickstart`
+* Set `Version` to `1.0.0`
+* Set `Repository` to `http://kolorobot.github.io/spring-mvc-quickstart-archetype`
+* Click next and create the project
+
+Note: If you would like to create a project using archetype published in your local repository, skip repository field and make sure it is installed locally (see below).
+
+Creating a new project in Spring Tool Suite
+-------------------------------------------
+
+* Create new project `File > New > Maven Project`
+* Make sure `Create a simple project` option is not selected
+* Click `Next` to navigate to `Select an Archetype` screen
+* Make sure `Include snapshot archetypes` is selected
+* Click `Add Archetype` button
+* Set `Archetype Group Id` to `pl.codeleak`
+* Set `Archetype Artifact Id` to `spring-mvc-quickstart`
+* Set `Archetype Version` to `1.0.0`
+* Set `Repository URL` to `http://kolorobot.github.io/spring-mvc-quickstart-archetype`
+* Click `OK` so the Archetype is added to the list
+* Click `Next` and fill in `Group Id`, `Artifact Id` and `Version` of your new project
+
+Note: Remember so select `Include snapshot archetypes`. 
+
+If you have any troubles with installation in Eclipse, you may want to have a look at this issue: #74
+
+
 Install archetype locally
 -------------------------
 
@@ -79,29 +114,6 @@ Create a new empty directory for your project and navigate into it and then run:
 ```
 
 Note: The above command will bootstrap a project using the archetype published in your local repository.
-
-Creating a new project in Eclipse
-----------------------------------
-
-* Import archetype URI by `Import ... > Projects from Git > Clone URI`
-* Install the archetype in local repository with `mvn install`
-* Go to `Preferences > Maven > Archetypes` and `Add Local Catalog`
-* Select the catalog from file (`archetype-catalog.xml`) 
-* Create new Maven project and select the archetype (remember so select `Include snapshot archetypes`)
-
-If you have any troubles with installation in Eclipse, you may want to have a look at this issue: #74
-
-Creating a new project in IntelliJ
-----------------------------------
-
-* Create new project `File > New > Project`
-* Click Maven on the left hand side of the new project dialog
-* Check `Create from archetype`
-* Click the `Add Archetype` button
-* Set Group Id to `com.github.spring-mvc-archetypes`
-* Set Artifact Id to `spring-mvc-quickstart`
-* Set Version to `1.0.0`
-* Click next and create the project
 
 Switching to PostgreSQL
 -----------------------
