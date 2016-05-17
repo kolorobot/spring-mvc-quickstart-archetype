@@ -4,11 +4,11 @@
     xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-catalog/1.0.0 http://maven.apache.org/xsd/archetype-catalog-1.0.0.xsd">
     <archetypes>
         <archetype>
-            <groupId>com.github.spring-mvc-archetypes</groupId>
+            <groupId>pl.codeleak</groupId>
             <artifactId>spring-mvc-quickstart</artifactId>
             <version>1.0.0</version>
-            <repository></repository>
-            <description>Archetype for creating Spring MVC 4 web application</description>
+            <repository>https://github.com/kolorobot/spring-mvc-quickstart-archetype</repository>
+            <description>Spring MVC 4 Quickstart Maven Archetype</description>
         </archetype>
     </archetypes>
 </archetype-catalog>

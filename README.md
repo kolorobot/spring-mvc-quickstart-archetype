@@ -32,7 +32,7 @@ Create a new empty directory for your project and navigate into it.
 
 ```bash
     mvn archetype:generate \
-        -DarchetypeGroupId=com.github.spring-mvc-archetypes \
+        -DarchetypeGroupId=pl.codeleak \
         -DarchetypeArtifactId=spring-mvc-quickstart \
         -DarchetypeVersion=1.0.0 \
         -DgroupId=my.groupid \
