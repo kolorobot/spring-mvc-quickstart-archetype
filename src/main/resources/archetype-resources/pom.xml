@@ -17,17 +17,6 @@
         <!-- AssertJ is not a part of Spring IO platform, so the version must be provided explicitly -->
         <assertj-core-version>3.4.1</assertj-core-version>
     </properties>
-    <repositories>
-        <!-- TODO Currently thymeleaf-extras-java8time is a snaphost -->
-        <repository>
-            <id>sonatype-nexus-snapshots</id>
-            <name>Sonatype Nexus Snapshots</name>
-            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </repository>
-    </repositories>
     <parent>
         <groupId>io.spring.platform</groupId>
         <artifactId>platform-bom</artifactId>
@@ -77,8 +66,7 @@
         <dependency>
             <groupId>org.thymeleaf.extras</groupId>
             <artifactId>thymeleaf-extras-java8time</artifactId>
-            <!-- TODO Not yet officially release -->
-            <version>3.0.0-SNAPSHOT</version>
+            <version>3.0.0.RELEASE</version>
         </dependency>
         <!-- Persistence -->
         <dependency>
