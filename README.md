@@ -138,6 +138,9 @@ dataSource.password=postgres
 
 hibernate.dialect=org.hibernate.dialect.PostgreSQL9Dialect
 hibernate.hbm2ddl.auto=create
+hibernate.show_sql=true
+hibernate.format_sql=true
+hibernate.use_sql_comments=true
 ```
 
 Enabling MongoDB repositories
