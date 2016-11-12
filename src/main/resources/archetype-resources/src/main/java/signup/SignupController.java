@@ -21,8 +21,11 @@ public class SignupController {
 	private AccountService accountService;
 
 	@GetMapping("signup")
-	public String signup(Model model) {
+	public String signup(Model model, @RequestHeader(value = "X-Requested-With", required = false) String requestedWith) {
 		model.addAttribute(new SignupForm());
+		if (Ajax.isAjaxRequest(requestedWith)) {
+			return SIGNUP_VIEW_NAME.concat(" :: signupForm");
+		}
 		return SIGNUP_VIEW_NAME;
 	}
 
