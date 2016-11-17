@@ -4,13 +4,12 @@ import org.junit.Test;
 
 import static org.hamcrest.Matchers.allOf;
 import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.equalTo;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-import ${package}.config.WebAppConfigurationAware;
+import ${package}.config.WebSecurityConfigurationAware;
 
-public class SignupControllerTest extends WebAppConfigurationAware {
+public class SignupControllerTest extends WebSecurityConfigurationAware {
     @Test
     public void displaysSignupForm() throws Exception {
         mockMvc.perform(get("/signup"))
