@@ -13,7 +13,7 @@ import ${package}.account.*;
 import ${package}.support.web.*;
 
 @Controller
-public class SignupController {
+class SignupController {
 
 	private static final String SIGNUP_VIEW_NAME = "signup/signup";
 
@@ -21,7 +21,7 @@ public class SignupController {
 	private AccountService accountService;
 
 	@GetMapping("signup")
-	public String signup(Model model, @RequestHeader(value = "X-Requested-With", required = false) String requestedWith) {
+	String signup(Model model, @RequestHeader(value = "X-Requested-With", required = false) String requestedWith) {
 		model.addAttribute(new SignupForm());
 		if (Ajax.isAjaxRequest(requestedWith)) {
 			return SIGNUP_VIEW_NAME.concat(" :: signupForm");
@@ -30,7 +30,7 @@ public class SignupController {
 	}
 
 	@PostMapping("signup")
-	public String signup(@Valid @ModelAttribute SignupForm signupForm, Errors errors, RedirectAttributes ra) {
+	String signup(@Valid @ModelAttribute SignupForm signupForm, Errors errors, RedirectAttributes ra) {
 		if (errors.hasErrors()) {
 			return SIGNUP_VIEW_NAME;
 		}
