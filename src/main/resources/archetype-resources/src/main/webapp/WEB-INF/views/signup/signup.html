@@ -5,14 +5,15 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link href="../../../resources/css/bootstrap.min.css" rel="stylesheet" media="screen" th:href="@{/resources/css/bootstrap.min.css}"/>
     <link href="../../../resources/css/core.css" rel="stylesheet" media="screen" th:href="@{/resources/css/core.css}" />
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="../../../resources/js/jquery.min.js" th:src="@{/resources/js/jquery.min.js}"></script>
     <script src="../../../resources/js/bootstrap.min.js" th:src="@{/resources/js/bootstrap.min.js}"></script>
 </head>
 <body>
-<form class="form-narrow form-horizontal" method="post" th:action="@{/signup}" th:object="${signupForm}">
+<div th:replace="fragments/layout :: header"></div>
+<form class="form-narrow form-horizontal" method="post" th:action="@{/signup}" th:object="${signupForm}" th:fragment="signupForm">
     <!--/* Show general error message when form contains errors */-->
     <th:block th:if="${#fields.hasErrors('${signupForm.*}')}">
-        <div th:replace="fragments/alert :: alert (type='danger', message='Form contains errors. Please try again.')">Alert</div>
+        <div th:replace="fragments/components :: alert (type='danger', message='Form contains errors. Please try again.')">Alert</div>
     </th:block>
     <fieldset>
         <legend>Please Sign Up</legend>
@@ -42,5 +43,6 @@
         </div>
     </fieldset>
 </form>
+<div th:replace="fragments/layout :: footer"></div>
 </body>
 </html>

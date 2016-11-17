@@ -1,21 +1,19 @@
 package ${package}.home;
 
-import java.security.Principal;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-class HomeController {
+class AboutController {
 
 	@ModelAttribute("module")
 	String module() {
-		return "home";
+		return "about";
 	}
 
-	@GetMapping("/")
-	String index(Principal principal) {
-		return principal != null ? "home/homeSignedIn" : "home/homeNotSignedIn";
+	@GetMapping("/about")
+	String about() {
+		return "home/about";
 	}
 }

@@ -11,15 +11,10 @@
 <body>
 <div th:replace="fragments/layout :: header"></div>
 <div class="container">
-    <!-- /* Handle the flash message */-->
-    <th:block th:if="${message != null}">
-        <!-- /* The message code is returned from the @Controller */ -->
-        <div th:replace="fragments/components :: alert (type=${#strings.toLowerCase(message.type)}, message=#{${message.message}(${#authentication.name})})">&nbsp;</div>
-    </th:block>
     <p class="lead text-center">
-        Welcome to the Spring MVC Quickstart application!
+        About
     </p>
-    <div th:replace="fragments/layout :: footer"></div>
 </div>
+<div th:replace="fragments/layout :: footer"></div>
 </body>
 </html>
