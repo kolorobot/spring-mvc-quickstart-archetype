@@ -1,7 +1,7 @@
 package ${package}.signup;
 
 import org.springframework.stereotype.Component;
-import pl.codeleak.arch.account.AccountRepository;
+import ${package}.account.AccountRepository;
 
 import javax.validation.Constraint;
 import javax.validation.ConstraintValidator;
@@ -17,7 +17,7 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
 @Target({FIELD, ANNOTATION_TYPE})
 @Retention(RUNTIME)
-@Constraint(validatedBy = pl.codeleak.arch.signup.EmailExistsValidator.class)
+@Constraint(validatedBy = ${package}.signup.EmailExistsValidator.class)
 @Documented
 public @interface EmailExists {
 
@@ -29,7 +29,7 @@ public @interface EmailExists {
 }
 
 @Component
-class EmailExistsValidator implements ConstraintValidator<pl.codeleak.arch.signup.EmailExists, String> {
+class EmailExistsValidator implements ConstraintValidator<${package}.signup.EmailExists, String> {
 
     private final AccountRepository accountRepository;
 
@@ -39,7 +39,7 @@ class EmailExistsValidator implements ConstraintValidator<pl.codeleak.arch.signu
 
 
     @Override
-    public void initialize(pl.codeleak.arch.signup.EmailExists constraintAnnotation) {
+    public void initialize(${package}.signup.EmailExists constraintAnnotation) {
 
     }
 
