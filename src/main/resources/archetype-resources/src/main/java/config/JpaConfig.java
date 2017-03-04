@@ -88,4 +88,11 @@ class JpaConfig {
     public PlatformTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
         return new JpaTransactionManager(entityManagerFactory);
     }
+
+    @Bean
+    JpaTransactionManager transactionManager(EntityManagerFactory entityManagerFactory) {
+        JpaTransactionManager transactionManager = new JpaTransactionManager();
+        transactionManager.setEntityManagerFactory(entityManagerFactory);
+        return transactionManager;
+    }
 }
