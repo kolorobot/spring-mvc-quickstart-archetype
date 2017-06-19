@@ -24,6 +24,7 @@ import org.thymeleaf.templateresolver.ITemplateResolver;
 @Configuration
 class WebMvcConfig extends WebMvcConfigurationSupport {
 
+    private static final String CHARACTER_ENCODING = "UTF-8";
     private static final String MESSAGE_SOURCE = "/WEB-INF/i18n/messages";
     private static final String VIEWS = "/WEB-INF/views/";
 
@@ -43,6 +44,7 @@ class WebMvcConfig extends WebMvcConfigurationSupport {
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
         messageSource.setBasename(MESSAGE_SOURCE);
         messageSource.setCacheSeconds(5);
+        messageSource.setDefaultEncoding(CHARACTER_ENCODING);
         return messageSource;
     }
 
@@ -52,7 +54,7 @@ class WebMvcConfig extends WebMvcConfigurationSupport {
         resolver.setPrefix(VIEWS);
         resolver.setSuffix(".html");
         resolver.setTemplateMode(TemplateMode.HTML);
-        resolver.setCharacterEncoding("UTF-8");
+        resolver.setCharacterEncoding(CHARACTER_ENCODING);
         resolver.setCacheable(false);
         return resolver;
     }
@@ -70,7 +72,7 @@ class WebMvcConfig extends WebMvcConfigurationSupport {
     public ViewResolver viewResolver() {
         ThymeleafViewResolver thymeleafViewResolver = new ThymeleafViewResolver();
         thymeleafViewResolver.setTemplateEngine(templateEngine());
-        thymeleafViewResolver.setCharacterEncoding("UTF-8");
+        thymeleafViewResolver.setCharacterEncoding(CHARACTER_ENCODING);
         return thymeleafViewResolver;
     }
 

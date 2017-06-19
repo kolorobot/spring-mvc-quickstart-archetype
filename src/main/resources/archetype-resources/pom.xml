@@ -13,14 +13,14 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java-version>1.8</java-version>
         <!-- Override Spring version -->
-        <!-- spring.version>4.3.3.RELEASE</spring.version -->
+        <!-- spring.version>4.3.9.RELEASE</spring.version -->
         <!-- Thymeleaf 3 -->
-        <org.thymeleaf-version>3.0.2.RELEASE</org.thymeleaf-version>
-        <org.thymeleaf.extras.springsecurity4-version>3.0.0.RELEASE</org.thymeleaf.extras.springsecurity4-version>
-        <nz.net.ultraq.thymeleaflayout-version>2.0.5</nz.net.ultraq.thymeleaflayout-version>
+        <org.thymeleaf-version>3.0.6.RELEASE</org.thymeleaf-version>
+        <org.thymeleaf.extras.springsecurity4-version>3.0.2.RELEASE</org.thymeleaf.extras.springsecurity4-version>
+        <nz.net.ultraq.thymeleaflayout-version>2.2.2</nz.net.ultraq.thymeleaflayout-version>
         <thymeleaf-extras-java8time-version>3.0.0.RELEASE</thymeleaf-extras-java8time-version>
-        <!-- AssertJ is not a part of Spring IO platform, so the version must be provided explicitly -->
-        <assertj-core-version>3.5.2</assertj-core-version>
+        <!-- AssertJ -->
+        <assertj-core-version>3.8.0</assertj-core-version>
     </properties>
     <parent>
         <groupId>io.spring.platform</groupId>

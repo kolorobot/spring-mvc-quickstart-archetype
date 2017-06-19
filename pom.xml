@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>pl.codeleak</groupId>
     <artifactId>spring-mvc-quickstart</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <packaging>maven-archetype</packaging>
     <name>Spring MVC Maven Archetype: Quickstart</name>
     <description>Archetype for creating Spring MVC 4 web application</description>
