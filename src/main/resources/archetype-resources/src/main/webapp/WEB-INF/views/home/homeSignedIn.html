@@ -17,7 +17,7 @@
         <div th:replace="fragments/components :: alert (type=${#strings.toLowerCase(message.type)}, message=#{${message.message}(${#authentication.name})})">&nbsp;</div>
     </th:block>
     <p class="lead text-center">
-        Welcome to the Spring MVC Quickstart application!
+        Welcome to the Spring <span th:text="${springVersion}">0.0.0</span> MVC Quickstart application!
     </p>
     <div th:replace="fragments/layout :: footer"></div>
 </div>
