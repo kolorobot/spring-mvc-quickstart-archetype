@@ -1,9 +1,9 @@
-Spring MVC 4 Quickstart Maven Archetype
-=========================================
+Spring MVC Quickstart Maven Archetype
+======================================
 
 Summary
 -------
-The project is a Maven archetype for Spring MVC 4 web application.
+The project is a Maven archetype for Spring MVC web application.
 
 Generated project characteristics
 -------------------------
