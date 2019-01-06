@@ -17,8 +17,8 @@ Generated project characteristics
 Prerequisites
 -------------
 
-- JDK 8
-- Maven 3
+- JDK 8 (tested with Java 11)
+- Maven 3 (tested with 3.6.0)
 
 Create a project
 ----------------
@@ -27,7 +27,7 @@ Create a project
     mvn archetype:generate \
         -DarchetypeGroupId=pl.codeleak \
         -DarchetypeArtifactId=spring-mvc-quickstart \
-        -DarchetypeVersion=5.0.0 \
+        -DarchetypeVersion=5.0.1 \
         -DgroupId=my.groupid \
         -DartifactId=my-artifactId \
         -Dversion=version \
@@ -42,8 +42,10 @@ Run the project
 Navigate to newly created project directory (`my-artifactId`) and then run:
 
 ```bash
-	mvn test tomcat7:run
+    mvn test tomcat7:run
 ```
+
+> Note: I do not recommend this way of running the artifact. Tomcat Maven Plugin Version 2.2 was released on 2013-11-11 
 
 Test in the browser
 -------------------
@@ -61,7 +63,7 @@ Create a new project in IntelliJ
 * Click the `Add Archetype` button
 * Set `Group Id` to `pl.codeleak`
 * Set `Artifact Id` to `spring-mvc-quickstart`
-* Set `Version` to `5.0.0`
+* Set `Version` to `5.0.1`
 * Set `Repository` to `http://kolorobot.github.io/spring-mvc-quickstart-archetype`
 * Click next and create the project
 
@@ -77,7 +79,7 @@ Creating a new project in Spring Tool Suite
 * Click `Add Archetype` button
 * Set `Archetype Group Id` to `pl.codeleak`
 * Set `Archetype Artifact Id` to `spring-mvc-quickstart`
-* Set `Archetype Version` to `5.0.0`
+* Set `Archetype Version` to `5.0.1`
 * Set `Repository URL` to `http://kolorobot.github.io/spring-mvc-quickstart-archetype`
 * Click `OK` so the Archetype is added to the list
 * Click `Next` and fill in `Group Id`, `Artifact Id` and `Version` of your new project
@@ -107,7 +109,7 @@ Create a new empty directory for your project and navigate into it and then run:
     mvn archetype:generate \
         -DarchetypeGroupId=pl.codeleak \
         -DarchetypeArtifactId=spring-mvc-quickstart \
-        -DarchetypeVersion=5.0.0 \
+        -DarchetypeVersion=5.0.1 \
         -DgroupId=my.groupid \
         -DartifactId=my-artifactId \
         -Dversion=version
