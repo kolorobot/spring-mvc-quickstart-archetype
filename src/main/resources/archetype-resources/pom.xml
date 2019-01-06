@@ -15,6 +15,7 @@
         <!-- Override Spring version -->
         <spring.version>5.0.0.RELEASE</spring.version>
         <jackson.version>2.9.1</jackson.version>
+        <jaxb-api.version>2.3.0</jaxb-api.version>
         <!-- Thymeleaf 3 -->
         <org.thymeleaf-version>3.0.7.RELEASE</org.thymeleaf-version>
         <org.thymeleaf-spring5-version>3.0.7.RC1</org.thymeleaf-spring5-version>
@@ -161,6 +162,11 @@
         <dependency>
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>${jaxb-api.version}</version>
         </dependency>
         <!-- Test -->
         <dependency>
