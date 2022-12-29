@@ -6,8 +6,8 @@
     <version>5.0.1</version>
     <packaging>maven-archetype</packaging>
     <name>Spring MVC Maven Archetype: Quickstart</name>
-    <description>Archetype for creating Spring MVC web application</description>
-    <url>https://github.com/kolorobot/spring-mvc-quickstart-archetype</url>
+    <description>squ_458465b24599cc45a95a2d1e63e0893db877e5da</description>
+    <url>http://http://43.205.198.205:9000</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
